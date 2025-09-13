@@ -563,6 +563,8 @@
         margin-bottom: 1rem;
       }
 
+      /* Find this existing section in your CSS and replace it with the code below */
+
       /* 7. Attorneys Section */
       .team-grid {
         display: grid;
@@ -570,7 +572,8 @@
         gap: 2rem;
       }
       .team-member {
-        text-align: center;
+        /* CHANGE THIS: from 'center' to 'left' */
+        text-align: left;
       }
       .team-member-img {
         position: relative;
@@ -595,6 +598,40 @@
         color: var(--color-primary);
         font-size: 0.9rem;
         margin: 0.25rem 0 0 0;
+      }
+
+      .attorney-location {
+        display: flex;
+        align-items: center;
+        /* REMOVE THIS LINE: justify-content: center; */
+        gap: 0.4rem;
+        margin-top: 0.8rem;
+        font-size: 0.9rem;
+        color: #a0a0a0;
+      }
+
+      .attorney-location i {
+        font-size: 1.1rem;
+        color: var(--color-primary);
+      }
+
+      .attorney-socials {
+        display: flex;
+        align-items: center;
+        /* REMOVE THIS LINE: justify-content: center; */
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .attorney-socials a i {
+        font-size: 1.4rem;
+        color: #a0a0a0;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      .attorney-socials a:hover i {
+        color: var(--color-primary);
+        transform: scale(1.1);
       }
 
       /* 8. Footer */
@@ -731,8 +768,8 @@
       <nav class="main-nav">
         <ul>
           <li><a href="#practice-areas">Practice Areas</a></li>
-          <li><a href="#attorneys">Attorneys</a></li>
-          <li><a href="#consultation">Contact</a></li>
+          <li><a href="#attorneys">People</a></li>
+          <li><a href="#consultation">Contact Us</a></li>
         </ul>
       </nav>
     </header>
@@ -798,7 +835,7 @@
           <div class="practice-areas-grid">
             <div class="practice-card fade-in">
               <i class="ri-briefcase-4-line"></i>
-              <h3>Corporate Law</h3>
+              <h3>Commercial Laws</h3>
               <p>
                 Guidance on mergers, acquisitions, corporate governance, and
                 commercial transactions to drive your business forward.
@@ -838,10 +875,11 @@
             </div>
             <div class="practice-card fade-in" style="transition-delay: 0.4s">
               <i class="ri-shield-user-line"></i>
-              <h3>Private Client Services</h3>
+              <h3>Matrimonial Laws</h3>
               <p>
-                Discreet and comprehensive estate planning, wealth management,
-                and trust administration for individuals and families.
+                Compassionate and strategic legal counsel in divorce, custody,
+                alimony, and marital disputes, ensuring fair resolution and
+                protection of your rights.
               </p>
             </div>
           </div>
@@ -1018,6 +1056,9 @@
       </section>
 
       <!-- Attorneys Section -->
+      <!-- ========================================================================= -->
+      <!-- ++ START: REPLACE YOUR EXISTING ATTORNEYS SECTION WITH THIS ENTIRE BLOCK ++ -->
+      <!-- ========================================================================= -->
       <section class="section" id="attorneys">
         <div class="container">
           <div class="section-header fade-in">
@@ -1028,39 +1069,108 @@
             </p>
           </div>
           <div class="team-grid">
+            <!-- Attorney 1 -->
             <div class="team-member fade-in">
               <div class="team-member-img">
                 <img
                   src="https://i.postimg.cc/qqKsbMC2/Whats-App-Image-2025-02-26-at-18-07-01-ab6be045.png"
-                  alt="Attorney James Courtland"
+                  alt="Attorney Ravi Singh Chhikara"
                 />
               </div>
               <h3>Ravi Singh Chhikara</h3>
               <p>Managing Partner | Criminal & Civil Laws</p>
+              <!-- New Features Added Below -->
+              <div class="attorney-location">
+                <i class="ri-map-pin-line"></i>
+                <span>Delhi | Haryana</span>
+              </div>
+              <div class="attorney-socials">
+                <a
+                  href="mailto:ravi@chamcourt.com"
+                  aria-label="Email Ravi Singh Chhikara"
+                >
+                  <i class="ri-mail-line"></i>
+                </a>
+                <a
+                  href="https://in.linkedin.com/in/ravi-singh-chhikara-85a98017a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ravi Singh Chhikara on LinkedIn"
+                >
+                  <i class="ri-linkedin-box-fill"></i>
+                </a>
+              </div>
             </div>
+            <!-- Attorney 2 -->
             <div class="team-member fade-in" style="transition-delay: 0.2s">
               <div class="team-member-img">
                 <img
                   src="https://i.postimg.cc/66vvjfHx/image-4.png"
-                  alt="Attorney Eleanor Chambers"
+                  alt="Attorney Nikita Parashar"
                 />
               </div>
-              <h3>Nikita Parashar</h3>
-              <p>Partner | Commercial Laws</p>
+              <h3>Nitika Parashar</h3>
+              <p>Partner | Corporate</p>
+              <!-- New Features Added Below -->
+              <div class="attorney-location">
+                <i class="ri-map-pin-line"></i>
+                <span>Delhi | Uttar Pradesh</span>
+              </div>
+              <div class="attorney-socials">
+                <a
+                  href="mailto:nikita.parashar@example.com"
+                  aria-label="Email Nikita Parashar"
+                >
+                  <i class="ri-mail-line"></i>
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Nikita Parashar on LinkedIn"
+                >
+                  <i class="ri-linkedin-box-fill"></i>
+                </a>
+              </div>
             </div>
+            <!-- Attorney 3 -->
             <div class="team-member fade-in" style="transition-delay: 0.4s">
               <div class="team-member-img">
                 <img
                   src="https://i.postimg.cc/W4f0sJGM/image-1.png"
-                  alt="Attorney Samuel Blackwood"
+                  alt="Attorney Adv. Ashwani Kumar"
                 />
               </div>
-              <h3>Adv. Ashwani Kumar</h3>
-              <p>Partner | Civil & Criminal Laws</p>
+              <h3>Ashwani Kumar</h3>
+              <p>Partner | Criminal & Real Estate</p>
+              <!-- New Features Added Below -->
+              <div class="attorney-location">
+                <i class="ri-map-pin-line"></i>
+                <span>Delhi | Haryana</span>
+              </div>
+              <div class="attorney-socials">
+                <a
+                  href="mailto:ashwani.kumar@example.com"
+                  aria-label="Email Adv. Ashwani Kumar"
+                >
+                  <i class="ri-mail-line"></i>
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Adv. Ashwani Kumar on LinkedIn"
+                >
+                  <i class="ri-linkedin-box-fill"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <!-- ========================================================================= -->
+      <!-- ++ END: REPLACEMENT BLOCK ++ -->
+      <!-- ========================================================================= -->
     </main>
 
     <footer class="main-footer">
@@ -1128,8 +1238,8 @@
               "We are here to make<br>sure your <span>business</span><br>succeed",
             number: "01",
             links: [
-              { text: "Corporate Law", url: "#" },
-              { text: "About Firm", url: "#" },
+              { text: "Corporate Laws", url: "#" },
+              { text: "About The Firm", url: "#" },
             ],
             description:
               "Full service law firm with expert advisory legal service.",
