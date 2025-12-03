@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Chambers & Courtland</title>
+    <meta name="description" content="Learn about Chambers & Courtland, a leading law firm founded by Ravi Singh Chhikara and Ashwani Kumar. Dedicated to justice, integrity, and client success." />
+    <meta name="keywords" content="About Chambers & Courtland, Law Firm History, Legal Team, Ravi Singh Chhikara, Ashwani Kumar, Legal Excellence" />
+    <meta name="author" content="Chambers & Courtland" />
+    <link rel="icon" href="assets/chacourt site icon.png" type="image/png">
+
+    <!-- Google Fonts & Remix Icon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- GLOBAL CSS STYLES (Inherited) --- */
+      :root {
+        --color-background: #121212;
+        --color-text: #e0e0e0;
+        --color-heading: #ffffff;
+        --color-primary: #c9a97f; /* Muted Gold */
+        --color-surface: #1c1c1c;
+        --font-heading: "Playfair Display", serif;
+        --font-body: "Montserrat", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        background-color: var(--color-background);
+        color: var(--color-text);
+        overflow-x: hidden;
+        line-height: 1.8;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: var(--color-primary);
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-heading);
+        color: var(--color-heading);
+        font-weight: 400;
+      }
+      p {
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      .section {
+        padding: 8rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      
+      /* Animation Classes */
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+      .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Staggered Delays */
+      .delay-100 { transition-delay: 0.1s; }
+      .delay-200 { transition-delay: 0.2s; }
+      .delay-300 { transition-delay: 0.3s; }
+      .delay-400 { transition-delay: 0.4s; }
+      .delay-500 { transition-delay: 0.5s; }
+
+      /* Header / Navigation */
+      .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 2rem 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        transition: background-color 0.4s ease, padding 0.4s ease;
+      }
+      .main-header.scrolled {
+        background-color: rgba(18, 18, 18, 0.9);
+        padding: 1.2rem 4rem;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      /* --- ABOUT PAGE SPECIFIC STYLES --- */
+
+      /* Hero Section */
+      .about-hero {
+        height: 85vh;
+        background: linear-gradient(to bottom, rgba(18, 18, 18, 0.4), var(--color-background)),
+          url("https://images.unsplash.com/photo-1505547828843-176834e42154?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      /* Subtle zoom animation for hero background */
+      .about-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        animation: zoomBg 20s infinite alternate;
+        z-index: -1;
+      }
+      @keyframes zoomBg {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.1); }
+      }
+
+      .about-hero-content {
+        max-width: 900px;
+        z-index: 2;
+        padding: 0 2rem;
+        margin-top: 5rem;
+      }
+      .about-hero h1 {
+        font-size: 5.5rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      }
+      .about-hero h1 span {
+        display: block;
+        font-size: 1.5rem;
+        font-family: var(--font-body);
+        color: var(--color-primary);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+      .about-hero p {
+        font-size: 1.3rem;
+        color: #e0e0e0;
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      }
+
+      /* The Firm Section (Split Layout) */
+      .firm-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+      }
+      .firm-image-wrapper {
+        position: relative;
+      }
+      .firm-image {
+        width: 100%;
+        height: 650px;
+        object-fit: cover;
+        border-radius: 4px;
+        filter: grayscale(20%) contrast(110%);
+        box-shadow: 20px 20px 0 var(--color-surface);
+        transition: filter 0.5s ease;
+      }
+      .firm-image-wrapper:hover .firm-image {
+        filter: grayscale(0%) contrast(110%);
+      }
+      .firm-image-overlay {
+        position: absolute;
+        bottom: -30px;
+        right: -30px;
+        background: var(--color-primary);
+        padding: 2.5rem;
+        color: var(--color-background);
+        max-width: 280px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        border-radius: 0.1rem;
+      }
+      .firm-image-overlay h4 {
+        color: var(--color-background);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      .firm-image-overlay p {
+        font-size: 0.95rem;
+        margin-bottom: 0;
+        font-weight: 500;
+      }
+      .firm-content h2 {
+        font-size: 3.5rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+      }
+      
+      .highlight-text {
+        font-size: 1.3rem;
+        color: #fff;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        border-left: 3px solid var(--color-primary);
+        padding-left: 1.5rem;
+      }
+
+      /* Core Values (Grid) */
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin-top: 5rem;
+      }
+      .value-card {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 3.5rem 2.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      .value-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .value-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.06);
+        border-color: var(--color-primary);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      }
+      .value-card:hover::before {
+        opacity: 1;
+      }
+      .value-icon {
+        font-size: 3.5rem;
+        color: var(--color-primary);
+        margin-bottom: 1.5rem;
+        opacity: 0.8;
+        transition: transform 0.4s ease;
+      }
+      .value-card:hover .value-icon {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+      .value-card h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+      .value-card p {
+        font-size: 1rem;
+        color: #aaa;
+        margin-bottom: 0;
+      }
+
+      /* Vision & Expansion Section (Redesigned) */
+      .vision-section {
+        position: relative;
+        padding: 10rem 0;
+        background-image: url("https://images.unsplash.com/photo-1505663912202-ac22d4cb3707?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Parallax effect */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .vision-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+      }
+      .vision-container {
+        position: relative;
+        z-index: 2;
+        max-width: 1000px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 5rem;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+      }
+      .vision-container::before {
+        content: "“";
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--font-heading);
+        font-size: 10rem;
+        color: var(--color-primary);
+        opacity: 0.2;
+        line-height: 1;
+      }
+      .vision-container h2 {
+        font-size: 3.5rem;
+        margin-bottom: 2rem;
+      }
+      .vision-quote {
+        font-size: 2rem;
+        font-family: var(--font-heading);
+        font-style: italic;
+        color: #fff;
+        margin-bottom: 2.5rem;
+        line-height: 1.4;
+      }
+      .vision-text {
+        font-size: 1.1rem;
+        color: #ccc;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Footer (Copied) */
+      .main-footer {
+        background-color: var(--color-surface);
+        padding: 5rem 0 2rem 0;
+        font-size: 0.9rem;
+        border-top: 1px solid rgba(255,255,255,0.05);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+      .footer-col h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col li {
+        margin-bottom: 0.8rem;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #888;
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .about-hero h1 { font-size: 3.5rem; }
+        .firm-section { grid-template-columns: 1fr; gap: 4rem; }
+        .firm-image { height: 400px; }
+        .main-header { padding: 1.5rem 2rem; }
+        .vision-container { padding: 3rem 2rem; }
+        .vision-container h2 { font-size: 2.5rem; }
+        .vision-quote { font-size: 1.5rem; }
+      }
+      @media (max-width: 768px) {
+        .main-nav { display: none; }
+        .about-hero h1 { font-size: 2.8rem; }
+        .section { padding: 5rem 0; }
+        .firm-content h2 { font-size: 2.5rem; }
+        .values-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="main-header" id="main-header">
+      <div class="logo">CHAMBERS & COURTLAND</div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Practice Areas</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="about-hero">
+        <div class="about-hero-content reveal-on-scroll">
+          <h1>
+            <span>Our Legacy</span>
+            Excellence & Integrity
+          </h1>
+          <p>Building one of India’s leading litigation practices, guided by vision and values.</p>
+        </div>
+      </section>
+
+      <!-- The Firm Section -->
+      <section class="section container">
+        <div class="firm-section">
+          <div class="firm-image-wrapper reveal-on-scroll">
+            <img 
+              src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070&auto=format&fit=crop" 
+              alt="Law Firm Interior" 
+              class="firm-image"
+            />
+            <div class="firm-image-overlay">
+              <h4>Founded By</h4>
+              <p>Ravi Singh Chhikara & Ashwani Kumar</p>
+            </div>
+          </div>
+          <div class="firm-content reveal-on-scroll delay-200">
+            <h2>A Shared Vision</h2>
+            <p class="highlight-text">
+              Chambers and Courtland was born from the shared ambition of two close friends, Ravi Singh Chhikara and Ashwani Kumar.
+            </p>
+            <p>
+              Guided by a relentless commitment to excellence and inspired by the blessings of Lord Shiva, we have steadily expanded our presence to become a trusted name for clients seeking robust legal representation. From the outset, our objective has been clear: to combine diligent preparation, strategic advocacy, and uncompromising integrity.
+            </p>
+            <p>
+              We believe that every matter entrusted to us deserves the utmost seriousness. We take pride in meeting timelines without ever compromising on quality, ensuring that our clients receive the best possible outcomes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Core Values Section -->
+      <section class="section container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 4rem auto;" class="reveal-on-scroll">
+          <h2>Cornerstones of Our Practice</h2>
+          <p style="color: #aaa;">We measure our success by that of our clients, working tirelessly to safeguard their rights and advance their interests.</p>
+        </div>
+        
+        <div class="values-grid">
+          <div class="value-card reveal-on-scroll delay-100">
+            <i class="ri-scales-3-line value-icon"></i>
+            <h3>Uncompromising Integrity</h3>
+            <p>We uphold the highest ethical standards. Transparency is central to our practice; we ensure clients remain fully informed with accessible updates at every stage.</p>
+          </div>
+          <div class="value-card reveal-on-scroll delay-200">
+            <i class="ri-sword-line value-icon"></i>
+            <h3>Strategic Advocacy</h3>
+            <p>Our approach combines deep legal knowledge with tactical foresight. We prepare diligently to deliver robust representation in the courts of Delhi-NCR and Haryana.</p>
+          </div>
+          <div class="value-card reveal-on-scroll delay-300">
+            <i class="ri-global-line value-icon"></i>
+            <h3>Global Ambition</h3>
+            <p>Though a young firm, we are laying the foundation for an international footprint. Our vision is to be recognized globally for litigation and advisory excellence.</p>
+          </div>
+          <div class="value-card reveal-on-scroll delay-100">
+            <i class="ri-group-line value-icon"></i>
+            <h3>Diverse Expertise</h3>
+            <p>With the inclusion of Ms. Nitika Parashar as a partner, we have expanded into commercial laws, M&A, venture capital, and financial regulatory matters.</p>
+          </div>
+          <!-- New Card 1 -->
+          <div class="value-card reveal-on-scroll delay-200">
+            <i class="ri-user-heart-line value-icon"></i>
+            <h3>Client-Centric Focus</h3>
+            <p>We view our relationship with clients as a partnership. Your success is our success, and we are dedicated to providing personalized attention to every case.</p>
+          </div>
+          <!-- New Card 2 -->
+          <div class="value-card reveal-on-scroll delay-300">
+            <i class="ri-trophy-line value-icon"></i>
+            <h3>Result-Oriented</h3>
+            <p>We are driven by results. Our team tirelessly explores every legal avenue to secure the best possible outcome, ensuring your interests are paramount.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vision / Quote Section (Redesigned) -->
+      <section class="vision-section">
+        <div class="vision-overlay"></div>
+        <div class="vision-container reveal-on-scroll">
+          <h2>Looking to the Future</h2>
+          <div class="vision-quote">
+            "We are ambitious in our outlook, constantly evolving to serve a diverse client base with precision and power."
+          </div>
+          <p class="vision-text">
+            Our practice now spans the full spectrum of civil and criminal laws, alongside specialized commercial sectors. As we grow, our dedication to safeguarding our clients' rights remains unwavering. We are building a legacy that transcends borders, aiming for global recognition in legal excellence.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4 class="logo">CHAMBERS & COURTLAND</h4>
+            <p>
+              Providing exceptional legal counsel over the years. We are
+              dedicated to our clients' success and the pursuit of justice.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="LinkedIn"
+                ><i class="ri-linkedin-box-fill"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Practice Areas</a></li>
+              <li><a href="team.html">Our Team</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Expertise</h4>
+            <ul>
+              <li><a href="services.html">Commercial Laws</a></li>
+              <li><a href="services.html">Litigation</a></li>
+              <li><a href="services.html">Real Estate</a></li>
+              <li><a href="services.html">Intellectual Property</a></li>
+              <li><a href="services.html">Matrimonial Laws</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Get In Touch</h4>
+            <p>
+              Chamber No 6, CK Daftary Block, Supreme Court of India,<br />New
+              Delhi - 110001 
+            </p>
+            <p>
+              <strong>P:</strong> +91 70421 31601<br />
+              <strong>E:</strong> contact@chamcourt.com
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Chambers & Courtland LLP. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll Reveal Animation
+      document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const elements = document.querySelectorAll('.reveal-on-scroll');
+        elements.forEach(el => observer.observe(el));
+
+        // Header Scroll Effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

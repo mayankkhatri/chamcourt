@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Team | Chambers & Courtland</title>
+    <meta name="description" content="Meet the expert legal team at Chambers & Courtland. Our experienced partners and associates are dedicated to providing top-tier legal counsel and representation." />
+    <meta name="keywords" content="Legal Team, Lawyers, Advocates, Partners, Associates, Chambers & Courtland Team, Legal Experts" />
+    <meta name="author" content="Chambers & Courtland" />
+    <link rel="icon" href="assets/chacourt site icon.png" type="image/png">
+
+    <!-- Google Fonts & Remix Icon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- GLOBAL CSS STYLES (Inherited) --- */
+      :root {
+        --color-background: #121212;
+        --color-text: #e0e0e0;
+        --color-heading: #ffffff;
+        --color-primary: #c9a97f; /* Muted Gold */
+        --color-surface: #1c1c1c;
+        --font-heading: "Playfair Display", serif;
+        --font-body: "Montserrat", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        background-color: var(--color-background);
+        color: var(--color-text);
+        overflow-x: hidden;
+        line-height: 1.8;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: var(--color-primary);
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-heading);
+        color: var(--color-heading);
+        font-weight: 400;
+      }
+      p {
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      .section {
+        padding: 8rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      
+      /* Animation Classes */
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+      .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Staggered Delays */
+      .delay-100 { transition-delay: 0.1s; }
+      .delay-200 { transition-delay: 0.2s; }
+      .delay-300 { transition-delay: 0.3s; }
+      .delay-400 { transition-delay: 0.4s; }
+
+      /* Header / Navigation */
+      .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 2rem 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        transition: background-color 0.4s ease, padding 0.4s ease;
+      }
+      .main-header.scrolled {
+        background-color: rgba(18, 18, 18, 0.9);
+        padding: 1.2rem 4rem;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      /* --- TEAM PAGE SPECIFIC STYLES --- */
+
+      /* Hero Section */
+      .team-hero {
+        height: 70vh;
+        background: linear-gradient(to bottom, rgba(18, 18, 18, 0.6), var(--color-background)),
+          url("https://images.pexels.com/photos/5520301/pexels-photo-5520301.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+      .team-hero-content {
+        max-width: 900px;
+        z-index: 2;
+        padding: 0 2rem;
+        margin-top: 5rem;
+      }
+      .team-hero h1 {
+        font-size: 4.5rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+      }
+      .team-hero h1 span {
+        display: block;
+        font-size: 1.5rem;
+        font-family: var(--font-body);
+        color: var(--color-primary);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+      .team-hero p {
+        font-size: 1.2rem;
+        color: #e0e0e0;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Partners Section */
+      .partner-card {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 4rem;
+        background: var(--color-surface);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        margin-bottom: 6rem;
+        overflow: hidden;
+        border-radius: 4px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .partner-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        border-color: var(--color-primary);
+      }
+      .partner-image-wrapper {
+        position: relative;
+        height: 100%;
+        min-height: 500px;
+        overflow: hidden;
+      }
+      .partner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+        filter: grayscale(20%);
+      }
+      .partner-card:hover .partner-image {
+        transform: scale(1.05);
+        filter: grayscale(0%);
+      }
+      .partner-content {
+        padding: 4rem 3rem 4rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .partner-role {
+        color: var(--color-primary);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      .partner-name {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .partner-bio {
+        color: #ccc;
+        margin-bottom: 2rem;
+        font-size: 1.05rem;
+      }
+      
+      .details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 2rem;
+      }
+      .detail-item h5 {
+        color: var(--color-primary);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .detail-item ul {
+        list-style: none;
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+      .detail-item li {
+        margin-bottom: 0.3rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .detail-item li::before {
+        content: "•";
+        color: var(--color-primary);
+      }
+
+      /* Associates Section */
+      .associates-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+      }
+      .associate-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 3rem;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .associate-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--color-primary);
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+        transform-origin: bottom;
+      }
+      .associate-card:hover {
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-5px);
+      }
+      .associate-card:hover::before {
+        transform: scaleY(1);
+      }
+      .associate-header {
+        margin-bottom: 2rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 1.5rem;
+      }
+      .associate-name {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      .associate-role {
+        color: var(--color-primary);
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+      .associate-bio {
+        font-size: 1rem;
+        color: #ccc;
+        margin-bottom: 2rem;
+        font-style: italic;
+      }
+      .associate-details {
+        display: grid;
+        gap: 1.5rem;
+      }
+      .associate-detail-row {
+        display: flex;
+        gap: 1rem;
+      }
+      .associate-icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        background: rgba(201, 169, 127, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary);
+        font-size: 1.2rem;
+      }
+      .associate-info h6 {
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+        font-weight: 600;
+      }
+      .associate-info p {
+        font-size: 0.9rem;
+        color: #aaa;
+        margin-bottom: 0;
+        line-height: 1.5;
+      }
+
+      /* Footer (Inherited) */
+      .main-footer {
+        background-color: var(--color-surface);
+        padding: 5rem 0 2rem 0;
+        font-size: 0.9rem;
+        border-top: 1px solid rgba(255,255,255,0.05);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+      .footer-col h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col li {
+        margin-bottom: 0.8rem;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #888;
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .team-hero h1 { font-size: 3.5rem; }
+        .partner-card { grid-template-columns: 1fr; gap: 0; }
+        .partner-image-wrapper { height: 400px; min-height: auto; }
+        .partner-content { padding: 3rem 2rem; }
+        .main-header { padding: 1.5rem 2rem; }
+      }
+      @media (max-width: 768px) {
+        .main-nav { display: none; }
+        .team-hero h1 { font-size: 2.8rem; }
+        .section { padding: 5rem 0; }
+        .partner-name { font-size: 2rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="main-header" id="main-header">
+      <div class="logo">CHAMBERS & COURTLAND</div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Practice Areas</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html" style="color: var(--color-primary)">Our Team</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="team-hero">
+        <div class="team-hero-content reveal-on-scroll">
+          <h1>
+            <span>Our People</span>
+            Legal Excellence
+          </h1>
+          <p>Meet the dedicated professionals committed to your success and the pursuit of justice.</p>
+        </div>
+      </section>
+
+      <!-- Partners Section -->
+      <section class="section container">
+        <div style="text-align: center; margin-bottom: 5rem;" class="reveal-on-scroll">
+          <h2>Our Partners</h2>
+          <p style="color: var(--color-primary); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Leadership Rooted in Vision and Expertise</p>
+        </div>
+
+        <!-- Partner 1: Ravi Singh Chhikara -->
+        <div class="partner-card reveal-on-scroll">
+          <div class="partner-image-wrapper">
+            <img src="https://i.postimg.cc/3rLxm0dc/ravi.png" alt="Ravi Singh Chhikara" class="partner-image" />
+          </div>
+          <div class="partner-content">
+            <div class="partner-role">Founding Partner</div>
+            <h3 class="partner-name">Adv. Ravi Singh Chhikara</h3>
+            <p class="partner-bio">
+              A stalwart of the legal fraternity, Ravi Singh Chhikara combines razor-sharp courtroom acumen with a deep commitment to justice. With over 5 years of experience, he has successfully represented clients in high-stakes litigation, earning a reputation for his strategic brilliance and unwavering resolve.
+            </p>
+            <div class="details-grid">
+              <div class="detail-item">
+                <h5>Qualifications</h5>
+                <ul>
+                  <li>BSc (Delhi University)</li>
+                  <li>LL.B. (Delhi University)</li>
+                </ul>
+              </div>
+              <div class="detail-item">
+                <h5>Courts</h5>
+                <ul>
+                  <li>Supreme Court of India</li>
+                  <li>Delhi High Court</li>
+                  <li>District & Sessions Courts</li>
+                  <li>U.S Court*</li>
+                </ul>
+              </div>
+              <div class="detail-item">
+                <h5>Practice Areas</h5>
+                <ul>
+                  <li>Criminal Laws</li>
+                  <li>Civil Laws</li>
+                  <li>Animal Protection Laws</li>
+                  <li>Economic Offences</li>
+                  <li>Service Law</li>
+                  <li>Bankruptcy Code</li>
+                  <li>Matrimonial</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Partner 2: Ashwani Kumar -->
+        <div class="partner-card reveal-on-scroll delay-200">
+          <div class="partner-image-wrapper">
+            <img src="https://i.postimg.cc/d1sJTJvF/image-9.png" alt="Ashwani Kumar" class="partner-image" />
+          </div>
+          <div class="partner-content">
+            <div class="partner-role">Partner</div>
+            <h3 class="partner-name">Adv. Ashwani Kumar</h3>
+            <p class="partner-bio">
+              Ashwani Kumar is an integral part of our team and a deeply respected colleague. His exceptional legal expertise, unwavering dedication, and insightful approach enhance everything we do. Known for his meticulous preparation and calm demeanor under pressure, he is a trusted advisor to many.
+            </p>
+            <div class="details-grid">
+              <div class="detail-item">
+                <h5>Qualifications</h5>
+                <ul>
+                  <li>B. Sc (H) Physics</li>
+                  <li>M.A Public Administration</li>
+                  <li>LL.B</li>
+                </ul>
+              </div>
+              <div class="detail-item">
+                <h5>Courts</h5>
+                <ul>
+                  <li>Supreme Court of India</li>
+                  <li>High Courts</li>
+                </ul>
+              </div>
+              <div class="detail-item">
+                <h5>Practice Areas</h5>
+                <ul>
+                  <li>Criminal law</li>
+                  <li>Civil law</li>
+                  <li>Constitutional law</li>
+                  <li>Family law</li>
+                  <li>Corporate law</li>
+                  <li>Property disputes</li>
+                  <li>Service matters</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Associates Section -->
+      <section class="section" style="background-color: #161616;">
+        <div class="container">
+          <div style="text-align: center; margin-bottom: 5rem;" class="reveal-on-scroll">
+            <h2>Our Associates</h2>
+            <p style="color: var(--color-primary); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Dynamic Advocates, Driven by Excellence</p>
+          </div>
+
+          <div class="associates-grid">
+            <!-- Associate 1: Tushar Dabas -->
+            <div class="associate-card reveal-on-scroll">
+              <div class="associate-header">
+                <h3 class="associate-name">Tushar Dabas</h3>
+                <span class="associate-role">Associate</span>
+              </div>
+              <p class="associate-bio">
+                "A compassionate advocate with a fighter’s spirit, Tushar Dabas specializes in family law and criminal defense. His empathetic yet assertive approach ensures that clients feel heard and protected throughout the legal process."
+              </p>
+              <div class="associate-details">
+                <div class="associate-detail-row">
+                  <div class="associate-icon"><i class="ri-graduation-cap-line"></i></div>
+                  <div class="associate-info">
+                    <h6>Qualifications</h6>
+                    <p>B.A L.L.B</p>
+                  </div>
+                </div>
+                <div class="associate-detail-row">
+                  <div class="associate-icon"><i class="ri-government-line"></i></div>
+                  <div class="associate-info">
+                    <h6>Courts</h6>
+                    <p>Delhi High Court, District Courts (Dwarka, Saket, Rohini)</p>
+                  </div>
+                </div>
+                <div class="associate-detail-row">
+                  <div class="associate-icon"><i class="ri-book-open-line"></i></div>
+                  <div class="associate-info">
+                    <h6>Practice Areas</h6>
+                    <p>Family Law, Criminal Defense, Domestic Violence, Motor Accident Claims</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Associate 2: Namita Chhabra -->
+            <div class="associate-card reveal-on-scroll delay-200">
+              <div class="associate-header">
+                <h3 class="associate-name">Namita Chhabra</h3>
+                <span class="associate-role">Associate</span>
+              </div>
+              <p class="associate-bio">
+                "A tech-savvy legal innovator, Namita Chhabra bridges the gap between law and technology. She excels in safeguarding digital assets and navigating the complex landscape of intellectual property and cyber law."
+              </p>
+              <div class="associate-details">
+                <div class="associate-detail-row">
+                  <div class="associate-icon"><i class="ri-graduation-cap-line"></i></div>
+                  <div class="associate-info">
+                    <h6>Qualifications</h6>
+                    <p>B.A. LLB (IP university), LLM (Kurushetra University)</p>
+                  </div>
+                </div>
+                <div class="associate-detail-row">
+                  <div class="associate-icon"><i class="ri-government-line"></i></div>
+                  <div class="associate-info">
+                    <h6>Courts</h6>
+                    <p>Delhi High Court, National Company Law Tribunal (NCLT)</p>
+                  </div>
+                </div>
+                <div class="associate-detail-row">
+                  <div class="associate-icon"><i class="ri-book-open-line"></i></div>
+                  <div class="associate-info">
+                    <h6>Practice Areas</h6>
+                    <p>Intellectual Property, Cyber Law, Contract Disputes, Startup Advisory</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4 class="logo">CHAMBERS & COURTLAND</h4>
+            <p>
+              Providing exceptional legal counsel over the years. We are
+              dedicated to our clients' success and the pursuit of justice.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="LinkedIn"
+                ><i class="ri-linkedin-box-fill"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Practice Areas</a></li>
+              <li><a href="team.html">Our Team</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Expertise</h4>
+            <ul>
+              <li><a href="services.html">Commercial Laws</a></li>
+              <li><a href="services.html">Litigation</a></li>
+              <li><a href="services.html">Real Estate</a></li>
+              <li><a href="services.html">Intellectual Property</a></li>
+              <li><a href="services.html">Matrimonial Laws</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Get In Touch</h4>
+            <p>
+              Chamber No 6, CK Daftary Block, Supreme Court of India,<br />New
+              Delhi - 110001 
+            </p>
+            <p>
+              <strong>P:</strong> +91 70421 31601<br />
+              <strong>E:</strong> contact@chamcourt.com
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Chambers & Courtland LLP. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll Reveal Animation
+      document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const elements = document.querySelectorAll('.reveal-on-scroll');
+        elements.forEach(el => observer.observe(el));
+
+        // Header Scroll Effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

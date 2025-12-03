@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chambers & Courtland | Premier Law Firm</title>
+    <title>Chambers & Courtland | Premier Law Firm in Delhi</title>
+    <meta name="description" content="Chambers & Courtland is a premier law firm in Delhi, providing expert legal services in litigation, corporate law, and advisory. Trusted by clients for excellence and integrity." />
+    <meta name="keywords" content="Chambers & Courtland, Law Firm, Legal Services, Delhi Law Firm, Litigation, Corporate Law, Supreme Court Lawyers" />
+    <meta name="author" content="Chambers & Courtland" />
+    <link rel="icon" href="assets/chacourt site icon.png" type="image/png">
 
     <!-- Google Fonts & Remix Icon -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -81,6 +85,24 @@
         opacity: 1;
         transform: translateY(0);
       }
+
+      /* Animation Classes */
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+      .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Staggered Delays */
+      .delay-100 { transition-delay: 0.1s; }
+      .delay-200 { transition-delay: 0.2s; }
+      .delay-300 { transition-delay: 0.3s; }
+      .delay-400 { transition-delay: 0.4s; }
+      .delay-500 { transition-delay: 0.5s; }
 
       /* 2. Header / Navigation */
       .main-header {
@@ -307,120 +329,86 @@
       /* START: FINAL CORRECTED CSS (Image Layout Fixed)                       */
       /* ======================================================================= */
 
-      #why-choose-us {
-        padding: 0;
-        border-bottom: none;
+      .wcu-section {
         background-color: var(--color-background);
-        padding-bottom: 10vh;
+        padding-bottom: 8rem; /* Space after the last card */
       }
 
-      .wcu-pinnable-wrapper {
+      .wcu-cards-wrapper {
         position: relative;
-        /* Height will be set by JavaScript */
-      }
-
-      .wcu-sticky-container {
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        width: 100%;
-        overflow: hidden;
+        max-width: 950px;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-top: 100px;
-        padding-bottom: 100px;
-        box-sizing: border-box;
+        gap: 4rem; /* Space between cards when they are not sticky (e.g. mobile or if sticky fails) */
       }
 
-      #why-choose-us .section-header {
-        text-align: center;
-        margin-bottom: 5vh;
-        width: 100%;
-        max-width: 950px;
-        flex-shrink: 0;
-        margin-left: auto;
-        margin-right: auto;
+      .wcu-card {
+        position: sticky;
+        top: 150px; /* Adjust based on header height + desired spacing */
+        height: 400px; /* Fixed height for the card */
+        perspective: 1000px;
       }
 
-      .wcu-cards-container {
+      /* Stack the cards visually */
+      .wcu-card:nth-child(1) {
+        top: 150px;
+        z-index: 1;
+      }
+      .wcu-card:nth-child(2) {
+        top: 180px; /* Offset slightly to show stacking effect */
+        z-index: 2;
+      }
+      .wcu-card:nth-child(3) {
+        top: 210px;
+        z-index: 3;
+      }
+
+      .wcu-card-inner {
         position: relative;
         width: 100%;
-        height: 380px; /* --- YOUR CHANGE: Height is now 380px --- */
-        max-width: 950px;
-        flex-shrink: 0;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      /* The card container itself */
-      .wcu-card {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
         height: 100%;
-
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
-
         border-radius: 16px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         overflow: hidden;
         background-color: var(--color-surface);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-
-        transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1),
-          opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-
-        transform: translateY(-80px) scale(0.9);
-        opacity: 0;
-        z-index: 1;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .wcu-card:hover .wcu-card-inner {
+          transform: translateY(-5px);
+          box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+          border-color: var(--color-primary);
       }
 
-      /* Active card state */
-      .wcu-card.active {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-        z-index: 10;
-      }
-
-      /* State for the card directly behind the active one */
-      .wcu-card.previous {
-        transform: translateY(-40px) scale(0.95);
-        opacity: 0.5;
-        z-index: 5;
-      }
-
-      /* --- FIX: The image's wrapper is now a positioning context --- */
       .wcu-card-image {
         grid-column: 1 / -1;
         grid-row: 1 / -1;
         width: 100%;
         height: 100%;
-        position: relative; /* --- ADD THIS --- */
+        position: relative;
       }
 
-      /* --- FIX: The image is now absolutely positioned to prevent layout shifts --- */
       .wcu-card-image img {
-        position: absolute; /* --- ADD THIS --- */
-        top: 0; /* --- ADD THIS --- */
-        left: 0; /* --- ADD THIS --- */
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
 
-      /* The content panel element */
       .wcu-card-content {
         grid-column: 1 / -1;
         grid-row: 1 / -1;
         z-index: 2;
         width: 55%;
         height: 100%;
-        background: rgba(18, 18, 18, 0.7);
+        background: rgba(18, 18, 18, 0.85); /* Slightly darker for better readability */
         backdrop-filter: blur(15px);
         border-right: 1px solid rgba(255, 255, 255, 0.1);
         padding: 3rem 4rem;
@@ -438,12 +426,7 @@
         width: 100%;
         height: 100%;
         stroke: var(--color-primary);
-        stroke-dasharray: 1000;
-        stroke-dashoffset: 1000;
-        transition: stroke-dashoffset 1s ease-in-out 0.4s;
-      }
-      .wcu-card.active .animated-icon {
-        stroke-dashoffset: 0;
+        stroke-width: 1.5;
       }
       .wcu-card-content h3 {
         font-size: 2.2rem;
@@ -452,42 +435,29 @@
 
       /* Mobile responsive styles */
       @media (max-width: 992px) {
-        .wcu-sticky-container {
-          padding: 4rem 0;
-          justify-content: flex-start;
-        }
-        #why-choose-us .section-header {
-          position: relative;
-          margin-bottom: 3rem;
-        }
-        .wcu-sticky-container,
-        .wcu-pinnable-wrapper {
-          position: relative;
-          height: auto !important;
-        }
-        .wcu-cards-container {
-          height: auto;
-        }
         .wcu-card {
           position: relative;
-          margin-bottom: 3rem;
-          opacity: 1;
-          transform: scale(1);
+          top: 0 !important; /* Disable sticky on mobile */
+          height: auto;
+          margin-bottom: 2rem;
+        }
+        .wcu-card-inner {
+            grid-template-rows: 250px auto; /* Image on top, content below */
+        }
+        .wcu-card-image {
+            grid-row: 1;
+            grid-column: 1;
         }
         .wcu-card-content {
-          width: 100%;
+            grid-row: 2;
+            grid-column: 1;
+            width: 100%;
+            border-right: none;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem;
         }
-        .wcu-card {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .wcu-card.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        .wcu-card.visible .animated-icon {
-          stroke-dashoffset: 0;
+        .wcu-cards-wrapper {
+            gap: 2rem;
         }
       }
       /* ======================================================================= */
@@ -794,10 +764,11 @@
       <nav class="main-nav">
         <ul>
           <li>
-            <a href="https://ravichhikara.com/services">Practice Areas</a>
+            <a href="services.html">Practice Areas</a>
           </li>
-          <li><a href="https://ravichhikara.com/team">People</a></li>
-          <li><a href="https://ravichhikara.com/contact">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
     </header>
@@ -818,7 +789,7 @@
               We are here to make<br />sure your <span>business</span
               ><br />succeed
             </h1>
-            <a href="#" class="slide-arrow-link" id="slide-main-link"
+            <a href="services.html" class="slide-arrow-link" id="slide-main-link"
               ><i class="ri-arrow-right-up-line"></i
             ></a>
           </div>
@@ -834,10 +805,10 @@
               id="slide-bottom-info-container"
             >
               <div class="bottom-links" id="bottom-links">
-                <a href="https://ravichhikara.com/services"
+                <a href="services.html"
                   >Corporate Law <i class="ri-arrow-right-up-line"></i
                 ></a>
-                <a href="https://ravichhikara.com/services"
+                <a href="about.html"
                   >About Firm <i class="ri-arrow-right-up-line"></i
                 ></a>
               </div>
@@ -852,7 +823,7 @@
       <!-- Practice Areas Section -->
       <section class="section" id="practice-areas">
         <div class="container">
-          <div class="section-header fade-in">
+          <div class="section-header reveal-on-scroll">
             <h2>Our <span class="highlight">Expertise</span></h2>
             <p>
               Chambers & Courtland provides comprehensive legal solutions across
@@ -861,7 +832,7 @@
             </p>
           </div>
           <div class="practice-areas-grid">
-            <div class="practice-card fade-in">
+            <div class="practice-card reveal-on-scroll">
               <i class="ri-briefcase-4-line"></i>
               <h3>Commercial Laws</h3>
               <p>
@@ -869,7 +840,7 @@
                 commercial transactions to drive your business forward.
               </p>
             </div>
-            <div class="practice-card fade-in" style="transition-delay: 0.2s">
+            <div class="practice-card reveal-on-scroll" style="transition-delay: 0.2s">
               <i class="ri-scales-3-line"></i>
               <h3>Litigation & Dispute Resolution</h3>
               <p>
@@ -877,7 +848,7 @@
                 disputes, from negotiation to courtroom advocacy.
               </p>
             </div>
-            <div class="practice-card fade-in" style="transition-delay: 0.4s">
+            <div class="practice-card reveal-on-scroll" style="transition-delay: 0.4s">
               <i class="ri-building-line"></i>
               <h3>Real Estate Law</h3>
               <p>
@@ -885,7 +856,7 @@
                 acquisition, development, leasing, and financing.
               </p>
             </div>
-            <div class="practice-card fade-in">
+            <div class="practice-card reveal-on-scroll">
               <i class="ri-lightbulb-flash-line"></i>
               <h3>Intellectual Property</h3>
               <p>
@@ -893,7 +864,7 @@
                 trademarks, and copyrights, in a competitive marketplace.
               </p>
             </div>
-            <div class="practice-card fade-in" style="transition-delay: 0.2s">
+            <div class="practice-card reveal-on-scroll" style="transition-delay: 0.2s">
               <i class="ri-bank-line"></i>
               <h3>Banking & Finance</h3>
               <p>
@@ -901,7 +872,7 @@
                 transactions, regulatory compliance, and debt financing.
               </p>
             </div>
-            <div class="practice-card fade-in" style="transition-delay: 0.4s">
+            <div class="practice-card reveal-on-scroll" style="transition-delay: 0.4s">
               <i class="ri-shield-user-line"></i>
               <h3>Matrimonial Laws</h3>
               <p>
@@ -916,147 +887,136 @@
 
       <!-- *** NEW: Why Choose Us Section *** -->
       <!-- =================================================================== -->
-      <!-- START: NEW "Why Choose Us" Section - Replace the old one with this -->
+      <!-- START: NEW "Why Choose Us" Section - CSS Sticky Version -->
       <!-- =================================================================== -->
-      <section id="why-choose-us">
-        <!-- This outer wrapper creates the scroll "runway" for the pinning effect.
-         Its height (set in JS) determines how long you scroll while the animation plays. -->
-        <div class="wcu-pinnable-wrapper">
-          <!-- This container becomes "sticky" and holds the visible content. -->
-          <div class="wcu-sticky-container">
-            <div class="container">
-              <div class="section-header">
-                <h2>The <span class="highlight">Courtland</span> Standard</h2>
-                <p>
-                  Welcome to Chambers & Courtland! We don't just practice law.
-                  We define it. Our principles are the pillars of your success.
-                </p>
-              </div>
+      <section id="why-choose-us" class="wcu-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>The <span class="highlight">Courtland</span> Standard</h2>
+            <p>
+              Welcome to Chambers & Courtland! We don't just practice law.
+              We define it. Our principles are the pillars of your success.
+            </p>
+          </div>
 
-              <!-- A container for all the animated cards -->
-              <div class="wcu-cards-container">
-                <!-- Card 1 -->
-                <div class="wcu-card" data-card="1">
-                  <div class="wcu-card-content">
-                    <div class="wcu-icon-wrapper">
-                      <!-- SVG for "Strategic Precision" - A Target/Bullseye -->
-                      <svg
-                        class="animated-icon"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path
-                          d="M12 3v18m-7-3.5L12 21l7-3.5M5 17.5V14l7 3.5 7-3.5v3.5M19 14l-7-3.5L5 14m7-6.5L19 4 12 1 5 4l7 3.5z"
-                        />
-                      </svg>
-                    </div>
-                    <h3>Strategic Precision</h3>
-                    <p>
-                      We dissect every complexity, crafting bespoke legal
-                      strategies that are as intelligent as they are
-                      indefensible. Your objectives become our blueprint for
-                      victory.
-                    </p>
+          <div class="wcu-cards-wrapper">
+            <!-- Card 1 -->
+            <div class="wcu-card">
+              <div class="wcu-card-inner">
+                <div class="wcu-card-content">
+                  <div class="wcu-icon-wrapper">
+                    <svg
+                      class="animated-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M12 3v18m-7-3.5L12 21l7-3.5M5 17.5V14l7 3.5 7-3.5v3.5M19 14l-7-3.5L5 14m7-6.5L19 4 12 1 5 4l7 3.5z"
+                      />
+                    </svg>
                   </div>
-                  <div class="wcu-card-image">
-                    <img
-                      src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg"
-                      alt="Architectural detail representing precision"
-                    />
-                  </div>
+                  <h3>Strategic Precision</h3>
+                  <p>
+                    We dissect every complexity, crafting bespoke legal
+                    strategies that are as intelligent as they are
+                    indefensible. Your objectives become our blueprint for
+                    victory.
+                  </p>
                 </div>
-
-                <!-- Card 2 -->
-                <div class="wcu-card" data-card="2">
-                  <div class="wcu-card-content">
-                    <div class="wcu-icon-wrapper">
-                      <!-- SVG for "Unwavering Advocacy" - A Shield -->
-                      <svg
-                        class="animated-icon"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path
-                          d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-                        ></path>
-                        <path d="m9 12 2 2 4-4"></path>
-                      </svg>
-                    </div>
-                    <h3>Unwavering Advocacy</h3>
-                    <p>
-                      In the negotiation room or the courtroom, we are your
-                      steadfast shield and your relentless champion. We don't
-                      just represent you; we become your voice.
-                    </p>
-                  </div>
-                  <div class="wcu-card-image">
-                    <img
-                      src="https://images.pexels.com/photos/7876051/pexels-photo-7876051.jpeg"
-                      alt="A confident individual representing advocacy"
-                    />
-                  </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="wcu-card" data-card="3">
-                  <div class="wcu-card-content">
-                    <div class="wcu-icon-wrapper">
-                      <!-- SVG for "A Legacy of Results" - A Trophy -->
-                      <svg
-                        class="animated-icon"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="M12 22V18"></path>
-                        <path d="M8.5 18H15.5"></path>
-                        <path
-                          d="M12 15C14.7614 15 17 12.7614 17 10C17 7.23858 14.7614 5 12 5C9.23858 5 7 7.23858 7 10C7 12.7614 9.23858 15 12 15Z"
-                        ></path>
-                        <path d="M5 10H7"></path>
-                        <path d="M17 10H19"></path>
-                        <path
-                          d="M5 10C5 6.13401 8.13401 3 12 3C15.866 3 19 6.13401 19 10"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h3>A Legacy of Results</h3>
-                    <p>
-                      Our reputation is forged in the outcomes we deliver. We
-                      measure our success not in cases won, but in futures
-                      secured and businesses empowered.
-                    </p>
-                  </div>
-                  <div class="wcu-card-image">
-                    <img
-                      src="https://images.pexels.com/photos/8112186/pexels-photo-8112186.jpeg"
-                      alt="A classic library representing legacy and knowledge"
-                    />
-                  </div>
+                <div class="wcu-card-image">
+                  <img
+                    src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg"
+                    alt="Architectural detail representing precision"
+                  />
                 </div>
               </div>
-
-              <!-- ==================================================================== -->
-              <!-- ++ START: ADD THIS HTML BLOCK FOR THE BUTTON ++                      -->
-              <!-- ==================================================================== -->
-              <div class="wcu-button-wrapper">
-                <a href="#" class="btn btn-outline">About The Firm</a>
-              </div>
-              <!-- ==================================================================== -->
-              <!-- ++ END: NEW HTML BLOCK ++                                            -->
-              <!-- ==================================================================== -->
             </div>
+
+            <!-- Card 2 -->
+            <div class="wcu-card">
+              <div class="wcu-card-inner">
+                <div class="wcu-card-content">
+                  <div class="wcu-icon-wrapper">
+                    <svg
+                      class="animated-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                      ></path>
+                      <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                  </div>
+                  <h3>Unwavering Advocacy</h3>
+                  <p>
+                    In the negotiation room or the courtroom, we are your
+                    steadfast shield and your relentless champion. We don't
+                    just represent you; we become your voice.
+                  </p>
+                </div>
+                <div class="wcu-card-image">
+                  <img
+                    src="https://images.pexels.com/photos/7876051/pexels-photo-7876051.jpeg"
+                    alt="A confident individual representing advocacy"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="wcu-card">
+              <div class="wcu-card-inner">
+                <div class="wcu-card-content">
+                  <div class="wcu-icon-wrapper">
+                    <svg
+                      class="animated-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 22V18"></path>
+                      <path d="M8.5 18H15.5"></path>
+                      <path
+                        d="M12 15C14.7614 15 17 12.7614 17 10C17 7.23858 14.7614 5 12 5C9.23858 5 7 7.23858 7 10C7 12.7614 9.23858 15 12 15Z"
+                      ></path>
+                      <path d="M5 10H7"></path>
+                      <path d="M17 10H19"></path>
+                      <path
+                        d="M5 10C5 6.13401 8.13401 3 12 3C15.866 3 19 6.13401 19 10"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h3>A Legacy of Results</h3>
+                  <p>
+                    Our reputation is forged in the outcomes we deliver. We
+                    measure our success not in cases won, but in futures
+                    secured and businesses empowered.
+                  </p>
+                </div>
+                <div class="wcu-card-image">
+                  <img
+                    src="https://images.pexels.com/photos/8112186/pexels-photo-8112186.jpeg"
+                    alt="A classic library representing legacy and knowledge"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wcu-button-wrapper">
+            <a href="about.html" class="btn btn-outline">About The Firm</a>
           </div>
         </div>
       </section>
@@ -1068,7 +1028,7 @@
       <section class="section" id="consultation">
         <div class="container">
           <div class="cta-grid">
-            <div class="cta-content fade-in">
+            <div class="cta-content reveal-on-scroll">
               <h2>Your Path to Resolution Starts Here.</h2>
               <p>
                 Every great outcome begins with a conversation. Let us
@@ -1076,9 +1036,9 @@
                 forward. Your consultation is confidential, comprehensive, and
                 the first step toward achieving your goals.
               </p>
-              <a href="#" class="btn btn-primary">Schedule a Consultation</a>
+              <a href="/contact.html" class="btn btn-primary">Schedule a Consultation</a>
             </div>
-            <div class="cta-visual fade-in" style="transition-delay: 0.2s">
+            <div class="cta-visual reveal-on-scroll" style="transition-delay: 0.2s">
               <img
                 src="https://i.postimg.cc/qMtXqwbz/Alexander.png"
                 alt="A professional lawyer ready for a consultation"
@@ -1099,7 +1059,7 @@
       <!-- ========================================================================= -->
       <section class="section" id="attorneys">
         <div class="container">
-          <div class="section-header fade-in">
+          <div class="section-header reveal-on-scroll">
             <h2>Meet Our <span class="highlight">Partners</span></h2>
             <p>
               Our team is comprised of industry-recognized leaders dedicated to
@@ -1108,7 +1068,7 @@
           </div>
           <div class="team-grid">
             <!-- Attorney 1 -->
-            <div class="team-member fade-in">
+            <div class="team-member reveal-on-scroll">
               <div class="team-member-img">
                 <img
                   src="https://i.postimg.cc/3rLxm0dc/ravi.png"
@@ -1140,7 +1100,7 @@
               </div>
             </div>
             <!-- Attorney 2 -->
-            <div class="team-member fade-in" style="transition-delay: 0.2s">
+            <div class="team-member reveal-on-scroll" style="transition-delay: 0.2s">
               <div class="team-member-img">
                 <img
                   src="https://i.postimg.cc/Sx9SBZVB/nitika.png"
@@ -1172,7 +1132,7 @@
               </div>
             </div>
             <!-- Attorney 3 -->
-            <div class="team-member fade-in" style="transition-delay: 0.4s">
+            <div class="team-member reveal-on-scroll" style="transition-delay: 0.4s">
               <div class="team-member-img">
                 <img
                   src="https://i.postimg.cc/d1sJTJvF/image-9.png"
@@ -1229,28 +1189,28 @@
           <div class="footer-col">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#practice-areas">Practice Areas</a></li>
-              <li><a href="#attorneys">Attorneys</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Practice Areas</a></li>
+              <li><a href="team.html">Our Team</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>Our Expertise</h4>
             <ul>
-              <li><a href="#">Commercial Laws</a></li>
-              <li><a href="#">Litigation</a></li>
-              <li><a href="#">Real Estate</a></li>
-              <li><a href="#">Intellectual Property</a></li>
-              <li><a href="#">Matrimonial Laws</a></li>
+              <li><a href="services.html">Commercial Laws</a></li>
+              <li><a href="services.html">Litigation</a></li>
+              <li><a href="services.html">Real Estate</a></li>
+              <li><a href="services.html">Intellectual Property</a></li>
+              <li><a href="services.html">Matrimonial Laws</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>Get In Touch</h4>
             <p>
               Chamber No 6, CK Daftary Block, Supreme Court of India,<br />New
-              Delhi - 110001 
+              Delhi - 110001 
             </p>
             <p>
               <strong>P:</strong> +91 70421 31601<br />
@@ -1276,8 +1236,8 @@
               "We are here to make<br>sure your <span>business</span><br>succeed",
             number: "01",
             links: [
-              { text: "Corporate Laws", url: "#" },
-              { text: "About The Firm", url: "#" },
+              { text: "Corporate Laws", url: "services.html" },
+              { text: "About The Firm", url: "about.html" },
             ],
             description:
               "Full service law firm with expert advisory legal service.",
@@ -1288,8 +1248,8 @@
             title: "Protecting Your<br>Most Valuable<br><span>Assets</span>",
             number: "02",
             links: [
-              { text: "Intellectual Property", url: "#" },
-              { text: "Our Expertise", url: "#" },
+              { text: "Intellectual Property", url: "services.html" },
+              { text: "Our Team", url: "team.html" },
             ],
             description: "Safeguarding your innovations and creative works.",
           },
@@ -1300,8 +1260,8 @@
               "Navigating Complex<br><span>Litigation</span> With<br>Confidence",
             number: "03",
             links: [
-              { text: "Dispute Resolution", url: "#" },
-              { text: "Case Studies", url: "#" },
+              { text: "Dispute Resolution", url: "services.html" },
+              { text: "About Us", url: "about.html" },
             ],
             description:
               "Strategic representation in high-stakes legal disputes.",
@@ -1313,8 +1273,8 @@
               "Strategic Counsel<br>for Real Estate<br><span>Ventures</span>",
             number: "04",
             links: [
-              { text: "Real Estate Law", url: "#" },
-              { text: "Contact Us", url: "#" },
+              { text: "Real Estate Law", url: "services.html" },
+              { text: "Contact Us", url: "contact.html" },
             ],
             description: "Expert guidance through property transactions.",
           },
@@ -1384,114 +1344,290 @@
           }
         });
 
-        // =======================================================================
-        // START: FINAL JavaScript for "Why Choose Us" Scroll Animation
-        // =======================================================================
-        const wcuIsMobile = window.innerWidth <= 992;
-
-        if (!wcuIsMobile) {
-          const pinnableWrapper = document.querySelector(
-            ".wcu-pinnable-wrapper"
-          );
-          const cards = document.querySelectorAll(".wcu-card");
-          const numCards = cards.length;
-
-          // --- SENSITIVITY ADJUSTED ---
-          // 65vh of scroll per card. This feels quick and responsive.
-          const scrollDurationPerCard = 95;
-          pinnableWrapper.style.height = `${
-            numCards * scrollDurationPerCard
-          }vh`;
-
-          let lastActiveCardIndex = -1; // Keep track of the last active card
-
-          window.addEventListener(
-            "scroll",
-            () => {
-              const rect = pinnableWrapper.getBoundingClientRect();
-
-              if (rect.top > 0 || rect.bottom < window.innerHeight) {
-                return;
-              }
-
-              const totalScrollDistance =
-                pinnableWrapper.offsetHeight - window.innerHeight;
-              const scrollProgress = Math.abs(rect.top) / totalScrollDistance;
-              let activeCardIndex = Math.floor(scrollProgress * numCards);
-
-              if (activeCardIndex >= numCards) {
-                activeCardIndex = numCards - 1;
-              }
-
-              // Only update classes if the active card has changed, for performance
-              if (activeCardIndex !== lastActiveCardIndex) {
-                cards.forEach((card, index) => {
-                  // Set z-index based on position relative to the active card
-                  // This ensures the stacking order is visually correct as they animate
-                  card.style.zIndex =
-                    numCards - Math.abs(index - activeCardIndex);
-
-                  card.classList.remove("active", "previous");
-
-                  if (index === activeCardIndex) {
-                    card.classList.add("active");
-                  } else if (index === activeCardIndex - 1) {
-                    card.classList.add("previous");
-                  }
-                });
-                lastActiveCardIndex = activeCardIndex;
-              }
-            },
-            { passive: true }
-          );
-
-          // Trigger the first state on page load
-          window.dispatchEvent(new Event("scroll"));
-        } else {
-          // Mobile logic remains the same (simple fade-in)
-          const mobileCards = document.querySelectorAll(".wcu-card");
-          mobileCards.forEach((card) => card.classList.add("fade-in"));
-
-          const fadeElems = document.querySelectorAll(".fade-in");
-          const observer = new IntersectionObserver(
-            (entries, observer) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("visible");
-                  observer.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.2 }
-          );
-
-          fadeElems.forEach((elem) => observer.observe(elem));
-        }
-        // =======================================================================
-        // END: FINAL JavaScript for "Why Choose Us" Section
-        // =======================================================================
-
         // --- FADE-IN ON SCROLL SCRIPT ---
-        const fadeElems = document.querySelectorAll(".fade-in");
         const observerOptions = {
           root: null,
-          rootMargin: "0px",
-          threshold: 0.2, // Trigger when 20% of the element is visible
+          rootMargin: '0px',
+          threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
+          entries.forEach(entry => {
             if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target); // Stop observing once it's visible
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
             }
           });
         }, observerOptions);
 
-        fadeElems.forEach((elem) => {
-          observer.observe(elem);
+        const elements = document.querySelectorAll('.reveal-on-scroll');
+        elements.forEach(el => observer.observe(el));
+      });
+    </script>
+    <!-- Disclaimer Modal (Bottom Banner) -->
+    <div id="disclaimer-backdrop" class="disclaimer-backdrop"></div>
+    <div id="disclaimer-modal" class="disclaimer-banner">
+      <div class="disclaimer-content">
+        <h3>Disclaimer</h3>
+        <div class="disclaimer-text-container">
+          <div class="disclaimer-text" id="disclaimer-text">
+            <p>
+              The Bar Council of India does not permit advertisement or solicitation by advocates in any form or manner. By accessing this website, www.chamcourt.com, you acknowledge and confirm that you are seeking information relating to Chambers & Courtland of your own accord and that there has been no form of solicitation, advertisement or inducement by Chambers & Courtland or its members.
+            </p>
+            <p>
+              The content of this website is for informational purposes only and should not be interpreted as soliciting or advertisement. No material/information provided on this website should be construed as legal advice. Chambers & Courtland shall not be liable for consequences of any action taken by relying on the material/information provided on this website.
+            </p>
+            <p>
+              The contents of this website are the intellectual property of Chambers & Courtland.
+            </p>
+          </div>
+          <button id="read-more-btn" class="btn-read-more">Read More</button>
+        </div>
+        <div class="disclaimer-action">
+          <button id="proceed-btn" class="btn-proceed">I AGREE & PROCEED</button>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      /* Disclaimer Backdrop (Subtle Blur) */
+      .disclaimer-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2); /* Very light dim */
+        backdrop-filter: blur(3px); /* Subtle blur */
+        z-index: 9998;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+        pointer-events: none; /* Let clicks pass through if needed, but usually we want to block interaction */
+        pointer-events: all;
+      }
+
+      .disclaimer-backdrop.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Disclaimer Banner Styles */
+      .disclaimer-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(28, 28, 28, 0.98);
+        border-top: 1px solid var(--color-primary);
+        z-index: 9999;
+        padding: 1.5rem 2rem;
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+        transform: translateY(100%);
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        display: flex;
+        justify-content: center;
+      }
+      
+      .disclaimer-banner.show {
+        transform: translateY(0);
+      }
+
+      .disclaimer-content {
+        max-width: 1200px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      .disclaimer-content h3 {
+        color: var(--color-primary);
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0;
+        padding-top: 0.5rem;
+      }
+
+      .disclaimer-text-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .disclaimer-text {
+        font-size: 0.85rem;
+        color: #cccccc;
+        line-height: 1.5;
+        max-height: 80px; /* Increased slightly for better scroll usability */
+        overflow-y: auto; /* Allow scrolling */
+        transition: max-height 0.5s ease;
+        position: relative;
+        padding-right: 5px; /* Prevent text hiding behind scrollbar */
+      }
+
+      /* Custom Scrollbar */
+      .disclaimer-text::-webkit-scrollbar {
+        width: 4px;
+      }
+      .disclaimer-text::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 2px;
+      }
+      .disclaimer-text::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+      }
+      .disclaimer-text::-webkit-scrollbar-thumb:hover {
+        background: var(--color-primary);
+      }
+
+      .disclaimer-text.expanded {
+        max-height: 500px; /* Large enough to fit content */
+      }
+
+      .disclaimer-text p {
+        margin-bottom: 0.8rem;
+      }
+
+      .btn-read-more {
+        background: none;
+        border: none;
+        color: var(--color-primary);
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        text-decoration: underline;
+        padding: 0;
+        font-family: var(--font-body);
+        transition: opacity 0.3s ease;
+      }
+      
+      .btn-read-more.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .btn-read-more:hover {
+        color: #fff;
+      }
+
+      .disclaimer-action {
+        text-align: right;
+        padding-top: 0.5rem;
+      }
+
+      .btn-proceed {
+        background-color: var(--color-primary);
+        color: #121212;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .btn-proceed:hover {
+        background-color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(201, 169, 127, 0.3);
+      }
+
+      @media (max-width: 992px) {
+        .disclaimer-content {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+          text-align: center;
+        }
+        .disclaimer-content h3 {
+            padding-top: 0;
+        }
+        .disclaimer-action {
+          text-align: center;
+          padding-top: 0;
+        }
+        .disclaimer-text-container {
+            align-items: center;
+        }
+        .disclaimer-text {
+            text-align: left;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Disclaimer Modal Logic
+        const modal = document.getElementById('disclaimer-modal');
+        const backdrop = document.getElementById('disclaimer-backdrop');
+        const proceedBtn = document.getElementById('proceed-btn');
+        const readMoreBtn = document.getElementById('read-more-btn');
+        const disclaimerText = document.getElementById('disclaimer-text');
+        
+        // Check if user has already accepted
+        if (!sessionStorage.getItem('disclaimerAccepted')) {
+          // Show modal with a slight delay for smooth entrance
+          setTimeout(() => {
+            modal.classList.add('show');
+            backdrop.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+          }, 500);
+        }
+
+        // Handle Read More Toggle
+        readMoreBtn.addEventListener('click', () => {
+          disclaimerText.classList.toggle('expanded');
+          if (disclaimerText.classList.contains('expanded')) {
+            readMoreBtn.textContent = 'Read Less';
+          } else {
+            readMoreBtn.textContent = 'Read More';
+            // Reset scroll position when collapsing? Optional, but good UX
+            disclaimerText.scrollTop = 0;
+            readMoreBtn.classList.remove('hidden');
+          }
+        });
+
+        // Handle Scroll to Hide Read More
+        disclaimerText.addEventListener('scroll', () => {
+          // If scrolled to bottom (with a small buffer)
+          if (disclaimerText.scrollHeight - disclaimerText.scrollTop <= disclaimerText.clientHeight + 5) {
+             // Only hide if NOT expanded (because if expanded, we want Read Less to be visible usually, 
+             // but user said "removed on toggle" which is vague. 
+             // Let's assume: if they scroll to bottom of the SMALL view, they don't need 'Read More'.
+             if (!disclaimerText.classList.contains('expanded')) {
+                 readMoreBtn.classList.add('hidden');
+             }
+          } else {
+             readMoreBtn.classList.remove('hidden');
+          }
+        });
+
+        // Handle proceed button click
+        proceedBtn.addEventListener('click', () => {
+          sessionStorage.setItem('disclaimerAccepted', 'true');
+          modal.classList.remove('show');
+          backdrop.classList.remove('show');
+          document.body.style.overflow = ''; // Restore scrolling
+          
+          // Remove from DOM after transition to clean up
+          setTimeout(() => {
+            modal.style.display = 'none';
+            backdrop.style.display = 'none';
+          }, 500);
         });
       });
     </script>
   </body>
 </html>
+
+
+

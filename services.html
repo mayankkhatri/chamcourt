@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Practice Areas | Chambers & Courtland</title>
+    <meta name="description" content="Explore our comprehensive legal services including Civil Law, Criminal Defense, Corporate Law, Family Law, and more. Expert legal representation tailored to your needs." />
+    <meta name="keywords" content="Legal Services, Practice Areas, Civil Law, Criminal Defense, Corporate Law, Family Law, Litigation, Legal Advisory" />
+    <meta name="author" content="Chambers & Courtland" />
+    <link rel="icon" href="assets/chacourt site icon.png" type="image/png">
+
+    <!-- Google Fonts & Remix Icon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- GLOBAL CSS STYLES (Copied from index.html) --- */
+      :root {
+        --color-background: #121212;
+        --color-text: #e0e0e0;
+        --color-heading: #ffffff;
+        --color-primary: #c9a97f; /* Muted Gold */
+        --color-surface: #1c1c1c;
+        --font-heading: "Playfair Display", serif;
+        --font-body: "Montserrat", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        background-color: var(--color-background);
+        color: var(--color-text);
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: var(--color-primary);
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-heading);
+        color: var(--color-heading);
+        font-weight: 400;
+      }
+      p {
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      .section {
+        padding: 6rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Animation Classes */
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+      .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Staggered Delays */
+      .delay-100 { transition-delay: 0.1s; }
+      .delay-200 { transition-delay: 0.2s; }
+      .delay-300 { transition-delay: 0.3s; }
+      .delay-400 { transition-delay: 0.4s; }
+      .delay-500 { transition-delay: 0.5s; }
+
+      /* Header / Navigation */
+      .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 2rem 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        transition: background-color 0.4s ease, padding 0.4s ease;
+      }
+      .main-header.scrolled {
+        background-color: rgba(18, 18, 18, 0.9);
+        padding: 1.2rem 4rem;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      /* Services Page Specific Styles */
+      .page-hero {
+        height: 60vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://i.postimg.cc/wvKpDr7p/wmremove-transformed.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .page-hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+      .page-hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+        color: #cccccc;
+      }
+
+      /* Services Grid */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 4rem;
+      }
+
+      /* Glassmorphism Card Style */
+      .service-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        
+        padding: 2.5rem;
+        border-radius: 16px;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 340px; /* Fixed height initially */
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        border-color: rgba(201, 169, 127, 0.3); /* Primary color hint */
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        height: auto;
+        min-height: 340px;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .service-icon {
+        font-size: 3rem;
+        color: var(--color-primary);
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease;
+        text-shadow: 0 0 20px rgba(201, 169, 127, 0.3);
+      }
+
+      .service-card:hover .service-icon {
+        transform: scale(1.1);
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .service-card h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background-color: var(--color-primary);
+        transition: width 0.3s ease;
+      }
+
+      .service-card:hover h3::after {
+        width: 100px;
+      }
+
+      .service-description {
+        font-size: 0.95rem;
+        color: #d0d0d0;
+        line-height: 1.6;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+        /* Truncate text initially */
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-card:hover .service-description {
+        opacity: 1;
+        -webkit-line-clamp: unset; /* Show full text on hover */
+        overflow: visible;
+      }
+      
+      /* Get Consultation Button */
+      .btn-consult {
+        margin-top: auto;
+        padding: 0.8rem 1.5rem;
+        background-color: var(--color-primary);
+        color: var(--color-background);
+        border: none;
+        border-radius: 4px;
+        font-family: var(--font-body);
+        font-weight: 600;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease 0.1s;
+        align-self: flex-start;
+      }
+
+      .service-card:hover .btn-consult {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .btn-consult:hover {
+        background-color: var(--color-heading);
+        box-shadow: 0 5px 15px rgba(201, 169, 127, 0.4);
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+        color: var(--color-primary);
+      }
+
+      /* Modal Styles */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .modal-content {
+        background: var(--color-surface);
+        width: 90%;
+        max-width: 500px;
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        transform: translateY(30px);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+      }
+
+      .modal-overlay.active .modal-content {
+        transform: translateY(0);
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        color: #888;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .close-modal:hover {
+        color: var(--color-primary);
+      }
+
+      .modal-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        color: var(--color-heading);
+      }
+
+      .modal-subtitle {
+        font-size: 0.9rem;
+        color: #888;
+        margin-bottom: 2rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: #b0b0b0;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 0.8rem;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--color-text);
+        font-family: var(--font-body);
+        border-radius: 4px;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .btn-submit-modal {
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--color-primary);
+        color: var(--color-background);
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-submit-modal:hover {
+        background-color: var(--color-heading);
+      }
+
+      /* Footer (Copied from index.html) */
+      .main-footer {
+        background-color: var(--color-surface);
+        padding: 5rem 0 2rem 0;
+        font-size: 0.9rem;
+        margin-top: 6rem;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+      .footer-col h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col li {
+        margin-bottom: 0.8rem;
+      }
+      .footer-col p {
+        margin-bottom: 1.5rem;
+      }
+      .social-links a {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #888;
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .main-header {
+          padding: 1.5rem 2rem;
+        }
+        .page-hero h1 {
+          font-size: 3rem;
+        }
+        .services-grid {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+      }
+      @media (max-width: 768px) {
+        .main-nav {
+          display: none; 
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="main-header" id="main-header">
+      <div class="logo">CHAMBERS & COURTLAND</div>
+      <nav class="main-nav">
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="services.html" style="color: var(--color-primary)">Practice Areas</a>
+          </li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Page Hero -->
+      <section class="page-hero">
+        <div class="container reveal-on-scroll">
+          <h1>Our Practice Areas</h1>
+          <p>
+            Comprehensive legal solutions tailored to your needs. We provide expert representation across a wide spectrum of legal disciplines.
+          </p>
+        </div>
+      </section>
+
+      <!-- Litigation Services Section -->
+      <section class="container section">
+        <h2 class="section-title reveal-on-scroll">Litigation Services</h2>
+        <div class="services-grid">
+          
+          <!-- Civil Law -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-scales-3-line service-icon"></i>
+            <h3>Civil Law</h3>
+            <p class="service-description">
+              We handle a vast array of civil disputes with precision and care. From property disputes and breach of contract to tort claims and injunctions, our team ensures your rights are protected in civil courts. We strive for resolutions that align with your long-term interests.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Criminal Law -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-hammer-line service-icon"></i>
+            <h3>Criminal Law</h3>
+            <p class="service-description">
+              Facing criminal charges requires a robust and strategic defense. Our experienced criminal defense attorneys represent clients in all stages of criminal proceedings, from bail hearings to trials and appeals, ensuring a fair trial and vigorous defense of your liberty.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Family/Divorce Law -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-parent-line service-icon"></i>
+            <h3>Family & Divorce Law</h3>
+            <p class="service-description">
+              Navigating family disputes can be emotionally taxing. We provide compassionate and firm legal support for divorce, child custody, alimony, and domestic violence cases. Our goal is to resolve conflicts amicably where possible, while staunchly advocating for your interests.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- ADR -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-shake-hands-line service-icon"></i>
+            <h3>Alternate Dispute Resolution</h3>
+            <p class="service-description">
+              Litigation isn't always the only path. We specialize in Arbitration, Mediation, and Conciliation services to resolve disputes efficiently and cost-effectively outside the courtroom, preserving relationships and saving valuable time.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- DRT Litigation -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-bank-line service-icon"></i>
+            <h3>DRT Litigation</h3>
+            <p class="service-description">
+              We represent banks, financial institutions, and borrowers in Debt Recovery Tribunals. Our expertise covers SARFAESI Act proceedings, debt recovery applications, and defense against unjust recovery measures, ensuring financial disputes are handled with legal acumen.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Negotiable Instrument Law -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-file-paper-2-line service-icon"></i>
+            <h3>Negotiable Instrument Law</h3>
+            <p class="service-description">
+              Specialized legal services for cases under Section 138 of the Negotiable Instruments Act (Cheque Bounce cases). We assist in drafting notices, filing complaints, and defending clients to ensure swift legal recourse for dishonored financial instruments.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- IPR -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-copyright-line service-icon"></i>
+            <h3>Intellectual Property Rights</h3>
+            <p class="service-description">
+              Protect your innovation and creativity. We offer comprehensive services for Trademarks, Copyrights, and Patents, including registration, infringement litigation, and enforcement strategies to safeguard your intellectual assets in a competitive market.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Corporate/Company Law -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-building-4-line service-icon"></i>
+            <h3>Corporate Law</h3>
+            <p class="service-description">
+              From company incorporation to mergers and acquisitions, we provide end-to-end corporate legal advisory. We handle shareholder disputes, NCLT matters, and corporate compliance, acting as a trusted partner for your business's legal health.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Revenue Law -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-money-dollar-circle-line service-icon"></i>
+            <h3>Revenue Law</h3>
+            <p class="service-description">
+              Expert assistance in matters related to land revenue, property tax, and stamp duty. We represent clients before revenue authorities and tribunals, ensuring compliance and resolving disputes regarding land records and assessments.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Co-operative/Society Law -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-community-line service-icon"></i>
+            <h3>Co-operative Society Law</h3>
+            <p class="service-description">
+              We advise housing societies and co-operative banks on registration, bylaws, elections, and dispute resolution. Our team ensures smooth governance and legal compliance for co-operative bodies.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Service Matter -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-briefcase-4-line service-icon"></i>
+            <h3>Service Matters</h3>
+            <p class="service-description">
+              Representing employees and employers in disputes regarding employment, promotion, termination, and pension. We handle cases in Central Administrative Tribunals (CAT) and High Courts to protect employment rights.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Consumer Complaints -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-user-voice-line service-icon"></i>
+            <h3>Consumer Complaints</h3>
+            <p class="service-description">
+              Fighting for consumer rights against unfair trade practices and defective goods/services. We represent clients in District, State, and National Consumer Disputes Redressal Commissions to secure compensation and justice.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Cyber Crime -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-lock-password-line service-icon"></i>
+            <h3>Cyber Crime</h3>
+            <p class="service-description">
+              In the digital age, cyber threats are real. We provide legal defense and prosecution support for cybercrimes including hacking, data theft, online fraud, and defamation, leveraging technical and legal expertise.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Commercial Courts Matter -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-store-3-line service-icon"></i>
+            <h3>Commercial Courts</h3>
+            <p class="service-description">
+              Handling high-value commercial disputes with speed and efficiency under the Commercial Courts Act. We deal with business contracts, trade disputes, and commercial arbitration enforcement.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- PIL -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-group-line service-icon"></i>
+            <h3>Public Interest Litigation</h3>
+            <p class="service-description">
+              Championing causes for the greater good. We file and contest PILs on issues of environmental protection, social justice, and governance, using the law as a tool for positive social change.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Quashing Petitions -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-file-shred-line service-icon"></i>
+            <h3>Quashing Petitions</h3>
+            <p class="service-description">
+              Seeking relief from the High Court to quash baseless FIRs and criminal proceedings under Section 482 of the CrPC. We protect innocent individuals from harassment and abuse of the legal process.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- CBI Matters -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-government-line service-icon"></i>
+            <h3>CBI Matters</h3>
+            <p class="service-description">
+              Specialized defense in high-profile cases investigated by the Central Bureau of Investigation. Our team navigates complex evidence and procedural intricacies to provide a formidable defense.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Economic Offences -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-funds-line service-icon"></i>
+            <h3>Economic Offences</h3>
+            <p class="service-description">
+              Handling complex white-collar crimes including money laundering (PMLA), tax evasion, and corporate fraud. We provide strategic counsel to mitigate risks and defend against prosecution.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Arbitrations -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-scales-2-line service-icon"></i>
+            <h3>Arbitration</h3>
+            <p class="service-description">
+              Expert representation in domestic and international arbitration proceedings. We assist in appointment of arbitrators, interim relief, and enforcement of arbitral awards.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <!-- Bankruptcy Code -->
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-bar-chart-box-line service-icon"></i>
+            <h3>Insolvency & Bankruptcy</h3>
+            <p class="service-description">
+              Advising creditors and corporate debtors under the IBC. We assist in corporate insolvency resolution processes (CIRP), liquidation, and debt restructuring strategies.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Non-Litigation Services Section -->
+      <section class="container section" style="background-color: #161616; width: 100vw; max-width: 100%; padding-left: max(2rem, calc((100vw - 1200px) / 2)); padding-right: max(2rem, calc((100vw - 1200px) / 2));">
+        <h2 class="section-title reveal-on-scroll">Non-Litigation & Documentation</h2>
+        <div class="services-grid">
+          
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-file-edit-line service-icon"></i>
+            <h3>Document Registration</h3>
+            <p class="service-description">
+              Seamless assistance with the drafting and registration of various legal documents, ensuring all statutory requirements are met for validity and enforceability.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-home-4-line service-icon"></i>
+            <h3>Rent & Lease Agreements</h3>
+            <p class="service-description">
+              Drafting robust Rent Agreements and Leave & License Agreements to protect the interests of both landlords and tenants, minimizing future disputes.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-shake-hands-fill service-icon"></i>
+            <h3>Partnership Deeds</h3>
+            <p class="service-description">
+              Structuring and drafting comprehensive Partnership Deeds that clearly define roles, profit-sharing, and dispute resolution mechanisms for new ventures.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-quill-pen-line service-icon"></i>
+            <h3>Contract Drafting</h3>
+            <p class="service-description">
+              Tailored drafting of commercial contracts, service agreements, and MOUs. We ensure every clause is precise and legally sound to safeguard your business interests.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-notification-3-line service-icon"></i>
+            <h3>Legal Notices</h3>
+            <p class="service-description">
+              Drafting and responding to legal notices with precision. A well-drafted notice often resolves disputes without the need for prolonged litigation.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-hearts-line service-icon"></i>
+            <h3>Marriage Registration</h3>
+            <p class="service-description">
+              Guiding couples through the process of marriage registration under various Marriage Acts, ensuring your union is legally recognized without hassle.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-parent-fill service-icon"></i>
+            <h3>Adoption Deeds</h3>
+            <p class="service-description">
+              Legal assistance in drafting and registering Adoption Deeds, ensuring the process complies with CARA guidelines and personal laws for a secure future.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-file-list-3-line service-icon"></i>
+            <h3>Succession Certificates</h3>
+            <p class="service-description">
+              Assisting legal heirs in obtaining Succession Certificates and Legal Heir Certificates to facilitate the smooth transfer of assets and debts.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-tree-line service-icon"></i>
+            <h3>Pedhi Namu</h3>
+            <p class="service-description">
+              Expert services for obtaining Pedhi Namu (Family Tree Certificate), essential for inheritance and property mutation purposes.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-file-search-line service-icon"></i>
+            <h3>Title Clearance</h3>
+            <p class="service-description">
+              Conducting thorough due diligence and issuing Title Clearance Reports for real estate transactions to ensure the property is free from encumbrances.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+          <div class="service-card reveal-on-scroll">
+            <i class="ri-bank-card-line service-icon"></i>
+            <h3>Release of Mortgage</h3>
+            <p class="service-description">
+              Facilitating the legal process for the Release of Mortgage upon repayment of loans, ensuring your property title is restored to its original state.
+            </p>
+            <button class="btn-consult">Get Consultation</button>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4 class="logo">CHAMBERS & COURTLAND</h4>
+            <p>
+              Providing exceptional legal counsel over the years. We are dedicated
+              to our clients' success and the pursuit of justice.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="LinkedIn"
+                ><i class="ri-linkedin-box-fill"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Practice Areas</a></li>
+              <li><a href="team.html">Our Team</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Expertise</h4>
+            <ul>
+              <li><a href="services.html">Commercial Laws</a></li>
+              <li><a href="services.html">Litigation</a></li>
+              <li><a href="services.html">Real Estate</a></li>
+              <li><a href="services.html">Intellectual Property</a></li>
+              <li><a href="services.html">Matrimonial Laws</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Get In Touch</h4>
+            <p>
+              Chamber No 6, CK Daftary Block, Supreme Court of India,<br />New
+              Delhi - 110001
+            </p>
+            <p>
+              <strong>P:</strong> +91 70421 31601<br />
+              <strong>E:</strong> contact@chamcourt.com
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Chambers & Courtland LLP. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Consultation Modal -->
+    <div class="modal-overlay" id="consultModal">
+      <div class="modal-content">
+        <button class="close-modal" id="closeModal">&times;</button>
+        <h3 class="modal-title">Request Consultation</h3>
+        <p class="modal-subtitle">Enter your details and we'll get back to you shortly.</p>
+        
+        <form id="consultForm">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" required placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" required placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Brief Issue</label>
+            <textarea class="form-control" rows="3" placeholder="Describe your legal issue..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit-modal">Submit Request</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Sticky Header & Fade In Script
+      document.addEventListener("DOMContentLoaded", function () {
+        const header = document.getElementById("main-header");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        });
+
+        const fadeElems = document.querySelectorAll(".fade-in");
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        fadeElems.forEach((elem) => {
+          observer.observe(elem);
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('consultModal');
+        const closeBtn = document.getElementById('closeModal');
+        const consultBtns = document.querySelectorAll('.btn-consult');
+        const consultForm = document.getElementById('consultForm');
+
+        consultBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent any default action
+            modal.classList.add('active');
+          });
+        });
+
+        closeBtn.addEventListener('click', () => {
+          modal.classList.remove('active');
+        });
+
+        // Close on outside click
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+          }
+        });
+
+        // Handle Form Submit
+        consultForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          // Here you would typically send the data to a backend
+          alert('Thank you! Your consultation request has been received. We will contact you shortly.');
+          modal.classList.remove('active');
+          consultForm.reset();
+        });
+      });
+    </script>
+  </body>
+    <script>
+      // Scroll Reveal Animation
+      document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const elements = document.querySelectorAll('.reveal-on-scroll');
+        elements.forEach(el => observer.observe(el));
+
+        // Header Scroll Effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
