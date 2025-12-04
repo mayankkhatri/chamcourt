@@ -384,32 +384,39 @@
           <!-- Contact Form -->
           <div class="contact-form-container reveal-on-scroll" style="transition-delay: 0.2s">
             <h2 style="margin-bottom: 2rem; font-size: 2.5rem">Send a Message</h2>
-            <form>
+            <form action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="f9f107ee-0f6d-4d7b-806b-54ad232bc087">
               <div class="form-group">
                 <label class="form-label">Full Name</label>
-                <input type="text" class="form-control" placeholder="John Doe" />
+                <input type="text" name="name" class="form-control" placeholder="John Doe" required />
               </div>
               <div class="form-group">
                 <label class="form-label">Email Address</label>
                 <input
                   type="email"
+                  name="email"
                   class="form-control"
                   placeholder="john@example.com"
+                  required
                 />
               </div>
               <div class="form-group">
                 <label class="form-label">Subject</label>
                 <input
                   type="text"
+                  name="subject"
                   class="form-control"
                   placeholder="Legal Inquiry"
+                  required
                 />
               </div>
               <div class="form-group">
                 <label class="form-label">Message</label>
                 <textarea
+                  name="message"
                   class="form-control"
                   placeholder="How can we help you?"
+                  required
                 ></textarea>
               </div>
               <button type="submit" class="btn-submit">Send Message</button>

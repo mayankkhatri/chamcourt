@@ -861,22 +861,23 @@
         <h3 class="modal-title">Request Consultation</h3>
         <p class="modal-subtitle">Enter your details and we'll get back to you shortly.</p>
         
-        <form id="consultForm">
+        <form id="consultForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="f9f107ee-0f6d-4d7b-806b-54ad232bc087">
           <div class="form-group">
             <label class="form-label">Full Name</label>
-            <input type="text" class="form-control" required placeholder="John Doe">
+            <input type="text" name="name" class="form-control" required placeholder="John Doe">
           </div>
           <div class="form-group">
             <label class="form-label">Phone Number</label>
-            <input type="tel" class="form-control" required placeholder="+91 98765 43210">
+            <input type="tel" name="phone" class="form-control" required placeholder="+91 98765 43210">
           </div>
           <div class="form-group">
             <label class="form-label">Email Address</label>
-            <input type="email" class="form-control" required placeholder="john@example.com">
+            <input type="email" name="email" class="form-control" required placeholder="john@example.com">
           </div>
           <div class="form-group">
             <label class="form-label">Brief Issue</label>
-            <textarea class="form-control" rows="3" placeholder="Describe your legal issue..."></textarea>
+            <textarea name="message" class="form-control" rows="3" placeholder="Describe your legal issue..."></textarea>
           </div>
           <button type="submit" class="btn-submit-modal">Submit Request</button>
         </form>
@@ -939,14 +940,14 @@
           }
         });
 
-        // Handle Form Submit
-        consultForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          // Here you would typically send the data to a backend
-          alert('Thank you! Your consultation request has been received. We will contact you shortly.');
-          modal.classList.remove('active');
-          consultForm.reset();
-        });
+        // Handle Form Submit - Removed to allow default submission to Web3Forms
+        // consultForm.addEventListener('submit', (e) => {
+        //   e.preventDefault();
+        //   // Here you would typically send the data to a backend
+        //   alert('Thank you! Your consultation request has been received. We will contact you shortly.');
+        //   modal.classList.remove('active');
+        //   consultForm.reset();
+        // });
       });
     </script>
   </body>
