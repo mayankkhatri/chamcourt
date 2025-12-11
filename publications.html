@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Publications | Chambers & Courtland</title>
-    <meta name="description" content="A collection of legal articles, opinions, and publications by Ravi Singh Chhikara." />
+    <meta
+      name="description"
+      content="A collection of legal articles, opinions, and publications by Ravi Singh Chhikara."
+    />
     <!-- Global Details & Fonts -->
-    <link rel="icon" href="assets/chacourt site icon.png" type="image/png">
+    <link rel="icon" href="assets/chacourt site icon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -50,7 +53,9 @@
         color: inherit;
         transition: color 0.3s ease;
       }
-      h1, h2, h3 {
+      h1,
+      h2,
+      h3 {
         font-family: var(--font-heading);
         color: var(--color-heading);
         font-weight: 400;
@@ -95,7 +100,7 @@
       .main-nav a:hover {
         color: var(--color-primary);
       }
-      
+
       /* --- UTILITY CLASSES --- */
       .container {
         width: 100%;
@@ -115,9 +120,13 @@
         align-items: center;
         text-align: center;
         padding: 0 2rem;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-        background: linear-gradient(to bottom, rgba(18, 18, 18, 0.7), var(--color-background)),
-                    url("https://images.unsplash.com/photo-1560693478-dfdb32f2176a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        background: linear-gradient(
+            to bottom,
+            rgba(18, 18, 18, 0.7),
+            var(--color-background)
+          ),
+          url("https://images.unsplash.com/photo-1560693478-dfdb32f2176a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -144,7 +153,7 @@
         overflow: hidden;
         background-color: var(--color-surface);
         padding: 1.5rem 0;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         margin-bottom: -1px; /* Connect visually */
         position: relative;
         z-index: 5;
@@ -161,7 +170,11 @@
       }
       .logo-slider-container::before {
         left: 0;
-        background: linear-gradient(to right, var(--color-surface), transparent);
+        background: linear-gradient(
+          to right,
+          var(--color-surface),
+          transparent
+        );
       }
       .logo-slider-container::after {
         right: 0;
@@ -190,8 +203,12 @@
       }
 
       @keyframes scrollLogos {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-100% / 3)); } /* Move 1/3 of total width (since we have 3 sets) */
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-100% / 3));
+        } /* Move 1/3 of total width (since we have 3 sets) */
       }
 
       /* --- SEARCH & FILTER SECTION --- */
@@ -200,18 +217,18 @@
         margin: 2rem auto 4rem auto; /* Removed negative margin to accommodate slider */
         padding: 2rem;
         background-color: var(--color-surface);
-        border: 1px solid rgba(255,255,255,0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 8px;
         display: flex;
         flex-wrap: wrap;
         gap: 1.5rem;
         align-items: center;
         justify-content: space-between;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         position: relative;
         z-index: 10;
       }
-      
+
       .search-box {
         flex: 2;
         min-width: 250px;
@@ -221,7 +238,7 @@
         width: 100%;
         padding: 0.8rem 1rem 0.8rem 2.8rem;
         background-color: var(--color-background);
-        border: 1px solid rgba(255,255,255,0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 4px;
         color: #fff;
         font-family: var(--font-body);
@@ -255,7 +272,7 @@
         padding: 0.8rem 2rem 0.8rem 1rem;
         appearance: none;
         background-color: var(--color-background);
-        border: 1px solid rgba(255,255,255,0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 4px;
         color: #fff;
         font-family: var(--font-body);
@@ -266,8 +283,8 @@
         border-color: var(--color-primary);
       }
       .filter-select::after {
-        content: '\ea4e'; /* RemixIcon down arrow */
-        font-family: 'remixicon';
+        content: "\ea4e"; /* RemixIcon down arrow */
+        font-family: "remixicon";
         position: absolute;
         right: 1rem;
         top: 50%;
@@ -289,7 +306,7 @@
 
       .article-card {
         background-color: var(--color-surface);
-        border: 1px solid rgba(255,255,255,0.05);
+        border: 1px solid rgba(255, 255, 255, 0.05);
         border-radius: 6px;
         overflow: hidden;
         transition: all 0.4s ease;
@@ -300,16 +317,16 @@
       .article-card:hover {
         transform: translateY(-5px);
         border-color: var(--color-primary);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
       }
-      
+
       .article-content {
         padding: 2rem;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
       }
-      
+
       .article-meta {
         font-size: 0.85rem;
         color: #888;
@@ -336,7 +353,12 @@
         font-family: var(--font-heading);
       }
       .article-title a {
-        background: linear-gradient(to right, var(--color-primary), var(--color-primary) 50%, #fff 50%);
+        background: linear-gradient(
+          to right,
+          var(--color-primary),
+          var(--color-primary) 50%,
+          #fff 50%
+        );
         background-size: 200% 100%;
         background-position: 100%;
         -webkit-background-clip: text;
@@ -387,7 +409,7 @@
         padding: 5rem 0 10rem 0; /* Significantly increased bottom padding */
         padding-bottom: calc(2rem + env(safe-area-inset-bottom));
         font-size: 0.9rem;
-        border-top: 1px solid rgba(255,255,255,0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
         color: #888;
       }
       .footer-grid {
@@ -429,20 +451,35 @@
 
       /* --- RESPONSIVE --- */
       @media (max-width: 992px) {
-        .pub-hero h1 { font-size: 2.8rem; }
-        .filter-container { flex-direction: column; align-items: stretch; margin-top: 0; }
-        .filter-group { flex-direction: column; }
+        .pub-hero h1 {
+          font-size: 2.8rem;
+        }
+        .filter-container {
+          flex-direction: column;
+          align-items: stretch;
+          margin-top: 0;
+        }
+        .filter-group {
+          flex-direction: column;
+        }
       }
       @media (max-width: 768px) {
-        .main-header { padding: 1.5rem 2rem; }
-        .pub-hero { padding-top: 10rem; }
-        .articles-container { grid-template-columns: 1fr; }
-        .main-nav { display: none; } /* Simplified mobile nav for this page version */
+        .main-header {
+          padding: 1.5rem 2rem;
+        }
+        .pub-hero {
+          padding-top: 10rem;
+        }
+        .articles-container {
+          grid-template-columns: 1fr;
+        }
+        .main-nav {
+          display: none;
+        } /* Simplified mobile nav for this page version */
       }
     </style>
   </head>
   <body>
-
     <!-- Header -->
     <header class="main-header" id="main-header">
       <div class="logo">CHAMBERS & COURTLAND</div>
@@ -452,7 +489,11 @@
           <li><a href="services.html">Practice Areas</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="team.html">Our Team</a></li>
-          <li><a href="publications.html" style="color: var(--color-primary)">Publications</a></li>
+          <li>
+            <a href="publications.html" style="color: var(--color-primary)"
+              >Publications</a
+            >
+          </li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
@@ -462,7 +503,10 @@
     <section class="pub-hero">
       <div class="container">
         <h1>Publications & Insights</h1>
-        <p>Expert legal analysis and commentary by <span class="highlight">Ravi Singh Chhikara</span></p>
+        <p>
+          Expert legal analysis and commentary by
+          <span class="highlight">Ravi Singh Chhikara</span>
+        </p>
       </div>
     </section>
 
@@ -475,13 +519,23 @@
         <div class="logo-item">The Quint</div>
         <div class="logo-item">Legal Service India</div>
         <div class="logo-item">The Times of India</div>
-        
+        <div class="logo-item">The Hindu</div>
+        <div class="logo-item">LiveLaw</div>
+        <div class="logo-item">The Wire</div>
+        <div class="logo-item">SCC Online</div>
+        <div class="logo-item">The New Indian Express</div>
+
         <!-- Duplicate Set for Infinite Scroll -->
         <div class="logo-item">The Leaflet</div>
         <div class="logo-item">Deccan Herald</div>
         <div class="logo-item">The Quint</div>
         <div class="logo-item">Legal Service India</div>
         <div class="logo-item">The Times of India</div>
+        <div class="logo-item">The Hindu</div>
+        <div class="logo-item">LiveLaw</div>
+        <div class="logo-item">The Wire</div>
+        <div class="logo-item">SCC Online</div>
+        <div class="logo-item">The New Indian Express</div>
 
         <!-- Triplicate Set (just to be safe for wide screens) -->
         <div class="logo-item">The Leaflet</div>
@@ -489,6 +543,11 @@
         <div class="logo-item">The Quint</div>
         <div class="logo-item">Legal Service India</div>
         <div class="logo-item">The Times of India</div>
+        <div class="logo-item">The Hindu</div>
+        <div class="logo-item">LiveLaw</div>
+        <div class="logo-item">The Wire</div>
+        <div class="logo-item">SCC Online</div>
+        <div class="logo-item">The New Indian Express</div>
       </div>
     </div>
 
@@ -497,25 +556,43 @@
       <div class="filter-container">
         <div class="search-box">
           <i class="ri-search-line"></i>
-          <input type="text" id="searchInput" placeholder="Search by title or keyword..." />
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by title or keyword..."
+          />
         </div>
         <div class="filter-group">
           <div class="filter-select">
             <select id="platformFilter">
               <option value="">All Platforms</option>
+
               <option value="The Times of India">The Times of India</option>
               <option value="The Leaflet">The Leaflet</option>
               <option value="Deccan Herald">Deccan Herald</option>
               <option value="The Quint">The Quint</option>
               <option value="Legal Service India">Legal Service India</option>
+              <option value="The Hindu">The Hindu</option>
+              <option value="The New Indian Express">
+                The New Indian Express
+              </option>
+              <option value="The Indian Express">The Indian Express</option>
+              <option value="LiveLaw">LiveLaw</option>
+              <option value="The Wire">The Wire</option>
+              <option value="SCC Online">SCC Online</option>
+              <option value="The PCLS Blog">The PCLS Blog</option>
             </select>
           </div>
           <div class="filter-select">
             <select id="yearFilter">
               <option value="">All Years</option>
+
+              <option value="2025">2025</option>
               <option value="2024">2024</option>
               <option value="2023">2023</option>
               <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
             </select>
           </div>
         </div>
@@ -568,7 +645,7 @@
             <h4>Get In Touch</h4>
             <p>
               Chamber No 6, CK Daftary Block, Supreme Court of India,<br />New
-              Delhi - 110001 
+              Delhi - 110001
             </p>
             <p>
               <strong>P:</strong> +91 70421 31601<br />
@@ -584,236 +661,421 @@
 
     <!-- JavaScript Data & Logic -->
     <script>
-      /* 
+      /*
        * DATA POPULATION INSTRUCTIONS:
        * To add new articles, simply add a new object to the 'articles' array below.
        * Required fields: title, platform, url.
        * Optional fields: date (string), excerpt (string).
        * The 'date' field represents the year mainly for filtering, but can be a full date string.
-      */
+       */
 
       const articles = [
         {
-          title: "Religious sentiments being ‘hurt’ or political motives being achieved?",
+          title:
+            "Religious sentiments being ‘hurt’ or political motives being achieved?",
           platform: "The Leaflet",
           url: "https://theleaflet.in/relgious-sentiments-being-hurt-or-political-motives-being-achieved/",
           date: "2023",
-          excerpt: "An analysis of the intersection between religious sentiments and political maneuvering in recent legal contexts."
+          excerpt:
+            "An analysis of the intersection between religious sentiments and political maneuvering in recent legal contexts.",
         },
         {
-          title: "Bombay High Court’s blanket order amounts to passive killing of dogs",
+          title:
+            "Bombay High Court’s blanket order amounts to passive killing of dogs",
           platform: "The Leaflet",
           url: "https://theleaflet.in/bombay-high-courts-blanket-order-amounts-to-passive-killing-of-dogs/",
           date: "2023",
-          excerpt: "Critique of the Bombay High Court's order regarding stray dogs and its ethical implications."
+          excerpt:
+            "Critique of the Bombay High Court's order regarding stray dogs and its ethical implications.",
         },
         {
-          title: "Domicile reservation in the private sector is constitutionally protected",
+          title:
+            "Domicile reservation in the private sector is constitutionally protected",
           platform: "The Leaflet",
           url: "https://theleaflet.in/domicile-reservation-in-the-private-sector-is-constitutionally-protected/",
           date: "2023",
-          excerpt: "Discussing the constitutional validity of domicile-based reservations within the private sector employment landscape."
+          excerpt:
+            "Discussing the constitutional validity of domicile-based reservations within the private sector employment landscape.",
         },
         {
-          title: "Justice can’t breathe! Time to revisit immunity granted to cops in India",
+          title:
+            "Justice can’t breathe! Time to revisit immunity granted to cops in India",
           platform: "The Leaflet",
           url: "https://theleaflet.in/justice-cant-breathe-time-to-revisit-immunity-granted-to-cops-in-india/",
           date: "2022",
-          excerpt: "A call for reform regarding the legal immunity granted to police officers and its impact on justice."
+          excerpt:
+            "A call for reform regarding the legal immunity granted to police officers and its impact on justice.",
         },
         {
-          title: "Policy reforms to make the LGBTQ+ community prouder by Pride Month next year",
+          title:
+            "Policy reforms to make the LGBTQ+ community prouder by Pride Month next year",
           platform: "The Leaflet",
           url: "https://theleaflet.in/policy-reforms-to-make-the-lgbtq-community-prouder-by-pride-month-next-year/",
           date: "2023",
-          excerpt: "Suggestions for policy changes to further the rights and dignity of the LGBTQ+ community in India."
+          excerpt:
+            "Suggestions for policy changes to further the rights and dignity of the LGBTQ+ community in India.",
         },
         {
           title: "We need a law against ‘Dark Patterns’",
           platform: "Deccan Herald",
           url: "https://www.deccanherald.com/opinion/we-need-a-law-against-dark-patterns-1187243.html",
           date: "2023",
-          excerpt: "Why India needs specific legislation to combat manipulative user interface designs known as dark patterns."
+          excerpt:
+            "Why India needs specific legislation to combat manipulative user interface designs known as dark patterns.",
         },
         {
           title: "The rapid rise of AI and the need for its regulation",
           platform: "Deccan Herald",
           url: "https://www.deccanherald.com/opinion/the-rapid-rise-of-ai-and-the-need-for-its-regulation-1231518.html",
           date: "2023",
-          excerpt: "Examining the legal challenges posed by artificial intelligence and the urgent need for a regulatory framework."
+          excerpt:
+            "Examining the legal challenges posed by artificial intelligence and the urgent need for a regulatory framework.",
         },
         {
           title: "Check the rising cases of sextortion",
           platform: "Deccan Herald",
           url: "https://www.deccanherald.com/opinion/check-the-rising-cases-of-sextortion-1358523.html",
           date: "2024",
-          excerpt: "Highlighting the alarming rise in sextortion cases and legal measures to curb this digital crime."
+          excerpt:
+            "Highlighting the alarming rise in sextortion cases and legal measures to curb this digital crime.",
         },
         {
           title: "The weakening strength of courts in India",
           platform: "Deccan Herald",
           url: "https://www.deccanherald.com/opinion/the-weakening-strength-of-courts-in-india-1089838.html",
           date: "2022",
-          excerpt: "An opinion piece on the challenges facing the Indian judiciary and the erosion of its institutional strength."
+          excerpt:
+            "An opinion piece on the challenges facing the Indian judiciary and the erosion of its institutional strength.",
         },
         {
           title: "Exploitation of police immunity",
           platform: "Deccan Herald",
           url: "https://www.deccanherald.com/opinion/exploitation-of-police-immunity-989672.html",
           date: "2022",
-          excerpt: "How the protection granted to police officials is often misused and the legal recourse available."
+          excerpt:
+            "How the protection granted to police officials is often misused and the legal recourse available.",
         },
         {
           title: "Farmers vs Farm Laws: MSP already a legal right",
           platform: "Deccan Herald",
           url: "https://www.deccanherald.com/opinion/farmers-vs-farm-laws-msp-already-a-legal-right-950148.html",
           date: "2021",
-          excerpt: "Legal analysis of the Farm Laws controversy and the status of Minimum Support Price (MSP)."
+          excerpt:
+            "Legal analysis of the Farm Laws controversy and the status of Minimum Support Price (MSP).",
         },
         {
-          title: "Does India Need Inspiration From the EU’s Proposed Regulation to Combat CSAM?",
+          title:
+            "Does India Need Inspiration From the EU’s Proposed Regulation to Combat CSAM?",
           platform: "The Quint",
           url: "https://www.thequint.com/opinion/does-india-need-inspiration-from-the-eus-proposed-regulation-to-combat-csam-ravi-singh-chhikara",
           date: "2024",
-          excerpt: "Comparative analysis of CSAM regulations in the EU and what India can learn from them."
+          excerpt:
+            "Comparative analysis of CSAM regulations in the EU and what India can learn from them.",
         },
         {
-          title: "UP Digital Media Policy Incentivises Content Creators but to What End?",
+          title:
+            "UP Digital Media Policy Incentivises Content Creators but to What End?",
           platform: "The Quint",
           url: "https://www.thequint.com/opinion/up-digital-media-policy-incentivises-content-creators-but-to-what-end-ravi-singh-chhikara",
           date: "2024",
-          excerpt: "Critiquing the new digital media policy in Uttar Pradesh and its implications for independent content creation."
+          excerpt:
+            "Critiquing the new digital media policy in Uttar Pradesh and its implications for independent content creation.",
         },
         {
           title: "The Plight of Wives vis-à-vis 'Unnatural' Sexual Acts",
           platform: "The Quint",
           url: "https://www.thequint.com/opinion/the-plight-of-wives-vis-a-vis-unnatural-sexual-acts-ravi-singh-chhikara",
           date: "2024",
-          excerpt: "Legal perspective on the protections and gaps regarding marital rights in the context of 'unnatural' offences."
+          excerpt:
+            "Legal perspective on the protections and gaps regarding marital rights in the context of 'unnatural' offences.",
         },
         {
-          title: "Hamare Baarah: Misinterpretation and Selective Presentation of Facts",
+          title:
+            "Hamare Baarah: Misinterpretation and Selective Presentation of Facts",
           platform: "The Quint",
           url: "https://www.thequint.com/opinion/hamare-baarah-misinterpretation-and-selective-presentation-of-facts-ravi-singh-chhikara",
           date: "2024",
-          excerpt: "Fact-checking and legal commentary on public narratives surrounding recent controversial events."
+          excerpt:
+            "Fact-checking and legal commentary on public narratives surrounding recent controversial events.",
         },
         {
-          title: "Trolling — An Unpunished Wrong Rising Exponentially. What Can Be Done?",
+          title:
+            "Trolling — An Unpunished Wrong Rising Exponentially. What Can Be Done?",
           platform: "The Quint",
           url: "https://www.thequint.com/opinion/trolling-an-unpunished-wrong-rising-exponentially-what-can-be-done-ravi-singh-chhikara",
           date: "2024",
-          excerpt: "Addressing the legal vacuum in dealing with online trolling and harassment."
+          excerpt:
+            "Addressing the legal vacuum in dealing with online trolling and harassment.",
         },
         {
-          title: "Arvind Kejriwal: Raising Questions on Bail Jurisprudence for Sitting Ministers",
+          title:
+            "Arvind Kejriwal: Raising Questions on Bail Jurisprudence for Sitting Ministers",
           platform: "The Quint",
           url: "https://www.thequint.com/opinion/arvind-kejriwal-raising-questions-on-bail-jurisprudence-for-sitting-ministers-ravi-singh-chhikara",
           date: "2024",
-          excerpt: "Analyzing the legal precedents regarding bail for sitting ministers."
+          excerpt:
+            "Analyzing the legal precedents regarding bail for sitting ministers.",
         },
         {
-          title: "Marital Rape – Power Relations And Legality! – A Case For Lex Feranda",
+          title: "SECTION 6A of the Citizenship Act — why it fails Assam",
+          platform: "The Hindu",
+          url: "https://www.thehindu.com/opinion/lead/section-6a-of-the-citizenship-act-why-it-fails-assam/article69001502.ece",
+          date: "2024",
+          excerpt:
+            "An analysis of the majority ruling by a Constitution Bench of the Supreme Court that upheld the constitutional validity of Section 6A.",
+        },
+        {
+          title:
+            "Domestic violence has no gender: Why husbands need legal protection too",
+          platform: "The New Indian Express",
+          url: "https://www.newindianexpress.com/web-only/2025/Jan/23/domestic-violence-has-no-gender-why-husbands-need-legal-protection-too",
+          date: "2025",
+          excerpt:
+            "Examining why the law’s empathy often falters when the victim is a man, and the need for gender-neutral protections.",
+        },
+        {
+          title: "Let LGBTQ+ couples adopt",
+          platform: "The Indian Express",
+          url: "https://indianexpress.com/article/opinion/web-edits/let-lgbtq-couples-adopt-7392100/",
+          date: "2021",
+          excerpt:
+            "Arguing that adoption by same-sex couples must be legalised in the context of rights and equality.",
+        },
+        {
+          title: "Community Service Not A Valid Bail Condition",
+          platform: "LiveLaw",
+          url: "https://www.livelaw.in/columns/code-of-criminal-procedure-bail-condition-section-4373-of-crpc-183775",
+          date: "2021",
+          excerpt:
+            "Analyzing the trend of imposing community service as a bail condition and its legal validity under the CrPC.",
+        },
+        {
+          title: "The Evidentiary Irregularities In Aryan Khan's Bail Order",
+          platform: "LiveLaw",
+          url: "https://www.livelaw.in/columns/aryan-khan-bail-order-evidentiary-irregularities-ndps-ncb-184220",
+          date: "2021",
+          excerpt:
+            "A critical examination of the evidentiary aspects and irregularities in a high-profile bail order.",
+        },
+        {
+          title:
+            "The Dilemma Over Interpretation Of Section 102 Of Code Of Criminal Procedure, 1973",
+          platform: "LiveLaw",
+          url: "https://www.livelaw.in/columns/section-102-of-code-of-criminal-procedure-supreme-court-suspicious-bank-transactions-193908",
+          date: "2021",
+          excerpt:
+            "Discussing the ambiguity in Section 102 regarding the seizure of property and police investigation powers.",
+        },
+        {
+          title:
+            "Regulating the Unregulated Video-On-Demand Platforms in India",
+          platform: "DNLU Student Law Journal",
+          url: "https://dnluslj.in/wp-content/uploads/2024/06/DNLU-SLJ-Volume-I.pdf",
+          date: "2021",
+          excerpt:
+            "A comprehensive look at the legal landscape for OTT and video-on-demand platforms and the case for regulation.",
+        },
+        {
+          title:
+            "Video-On-Demand Platforms in India: Why they Should be Regulated?",
+          platform: "Student Law Review",
+          url: "http://164.52.217.92:8080/jspui/bitstream/123456789/210/1/Student-Law-Review-2021.pdf",
+          date: "2021",
+          excerpt:
+            "Addressing the regulatory gaps concerning video-on-demand services in India.",
+        },
+        {
+          title: "The Theory of Consent in Sexual Abuse on Animals",
+          platform: "National Journal of Criminal Law",
+          url: "https://lawjournals.celnet.in/index.php/njcl/article/view/484",
+          date: "2020",
+          excerpt:
+            "A legal study on the concept of consent and cruelty in the context of sexual abuse on animals.",
+        },
+        {
+          title: "Legal Article (DHS Annual Law Review)",
+          platform: "HeinOnline",
+          url: "https://heinonline.org/hol-cgi-bin/get_pdf.cgi?handle=hein.journals/dhsanllw1&section=13",
+          date: "2021",
+          excerpt: "Scholarly article available via HeinOnline.",
+        },
+        {
+          title: "Analysis of Video-On-Demand Regulation",
+          platform: "ILI Law Review",
+          url: "https://ili.ac.in/pdf/win21_6.pdf",
+          date: "2021",
+          excerpt:
+            "Published in the Indian Law Institute Law Review, discussing digital media regulations.",
+        },
+        {
+          title: "The Evidentiary Irregularities in Aryan Khan’s Bail Order",
+          platform: "The Wire",
+          url: "https://thewire.in/law/evidentiary-irregularities-aryan-khan-bail-order",
+          date: "2021",
+          excerpt:
+            "A critique of the bail order process and legal principles in the Aryan Khan case.",
+        },
+        {
+          title: "The Unconstitutionality of the Anti-Trafficking Bill, 2021",
+          platform: "The PCLS Blog",
+          url: "https://pclshnlu.wordpress.com/2021/09/26/the-unconstitutionality-of-the-anti-trafficking-bill-2021-qua-the-sex-workers-and-citizens-of-india/",
+          date: "2021",
+          excerpt:
+            "Critiquing the 2021 Anti-Trafficking Bill for its potential impact on sex workers and citizens' rights.",
+        },
+        {
+          title: "MSPs against Corporates: A Legal & Constitutional Right",
+          platform: "SCC Online",
+          url: "https://www.scconline.com/blog/post/2021/03/27/msps-against-corporates/",
+          date: "2021",
+          excerpt:
+            "Analyzing Minimum Support Price (MSP) as a legal right under contract law and a constitutional right.",
+        },
+        {
+          title: "Harbinger Edition 12",
+          platform: "Harbinger",
+          url: "http://harbinger.co.in/wp-content/uploads/2021/03/Edition12.pdf",
+          date: "2021",
+          excerpt: "Published in Harbinger Edition 12.",
+        },
+        {
+          title: "The Ordinances that Mocked the Constitution",
+          platform: "Praxis Education India",
+          url: "https://praxiseducationindia.org/blog/the-ordinances-that-mocked-the",
+          date: "2021",
+          excerpt:
+            "Discussion on ordinances that challenge constitutional principles.",
+        },
+        {
+          title: "Berkeley Law Journal Article",
+          platform: "Berkeley Law",
+          url: "https://www.law.berkeley.edu/wp-content/uploads/2020/05/April-Issue.pdf",
+          date: "2020",
+          excerpt: "Publication in the Berkeley Law Journal, April Issue.",
+        },
+        {
+          title:
+            "Marital Rape – Power Relations And Legality! – A Case For Lex Feranda",
           platform: "Legal Service India",
           url: "https://www.legalserviceindia.com/legal/marital-rape-power-relations-and-legality-a-case-for-lex-feranda/",
           date: "2022",
-          excerpt: "A comprehensive legal argument for the criminalization of marital rape and future law reform."
+          excerpt:
+            "A comprehensive legal argument for the criminalization of marital rape and future law reform.",
         },
         {
           title: "Making the wrong noise",
           platform: "The Times of India",
           url: "https://timesofindia.indiatimes.com/blogs/author/ravi-singh-chhikara/",
           date: "2023",
-          excerpt: "Opinion piece on current sociopolitical discourse and public reactions."
+          excerpt:
+            "Opinion piece on current sociopolitical discourse and public reactions.",
         },
         {
-          title: "How is Bombay High Court’s blanket order a passive killing of dogs?",
+          title:
+            "How is Bombay High Court’s blanket order a passive killing of dogs?",
           platform: "The Times of India",
           url: "https://timesofindia.indiatimes.com/blogs/author/ravi-singh-chhikara/",
           date: "2022",
-          excerpt: "Analyzing the implications of the High Court's order on stray dog management and animal rights."
+          excerpt:
+            "Analyzing the implications of the High Court's order on stray dog management and animal rights.",
         },
         {
-          title: "Will the principles of bail be the same when an influential agent of State is alleged to have committed a crime?",
+          title:
+            "Will the principles of bail be the same when an influential agent of State is alleged to have committed a crime?",
           platform: "The Times of India",
           url: "https://timesofindia.indiatimes.com/blogs/author/ravi-singh-chhikara/",
           date: "2022",
-          excerpt: "Discussing equality before the law and bail jurisprudence for state agents."
+          excerpt:
+            "Discussing equality before the law and bail jurisprudence for state agents.",
         },
         {
-          title: "If hijab goes away, will all religious clothing go away from educational institutions?",
+          title:
+            "If hijab goes away, will all religious clothing go away from educational institutions?",
           platform: "The Times of India",
           url: "https://timesofindia.indiatimes.com/blogs/author/ravi-singh-chhikara/",
           date: "2022",
-          excerpt: "Examining the broader legal consequences of the hijab ban in educational institutions."
+          excerpt:
+            "Examining the broader legal consequences of the hijab ban in educational institutions.",
         },
         {
-          title: "A narrative that has hurt the religious feelings of Hindus who believe in Hindutva",
+          title:
+            "A narrative that has hurt the religious feelings of Hindus who believe in Hindutva",
           platform: "The Times of India",
           url: "https://timesofindia.indiatimes.com/blogs/author/ravi-singh-chhikara/",
           date: "2022",
-          excerpt: " commentary on religious sentiments, political narratives, and their legal and social impact."
+          excerpt:
+            " commentary on religious sentiments, political narratives, and their legal and social impact.",
         },
         {
-          title: "Is the government trespassing our personal lives by determining the age of marriage?",
+          title:
+            "Is the government trespassing our personal lives by determining the age of marriage?",
           platform: "The Times of India",
           url: "https://timesofindia.indiatimes.com/blogs/author/ravi-singh-chhikara/",
           date: "2022",
-          excerpt: "A look at the legal and personal liberty aspects of the government raising the marriage age."
+          excerpt:
+            "A look at the legal and personal liberty aspects of the government raising the marriage age.",
         },
         {
-          title: "Whether the Supreme Court has power to adjudicate upon fuel prices?",
+          title:
+            "Whether the Supreme Court has power to adjudicate upon fuel prices?",
           platform: "The Times of India",
           url: "https://timesofindia.indiatimes.com/blogs/author/ravi-singh-chhikara/",
           date: "2021",
-          excerpt: "Constitutional analysis of the Supreme Court's jurisdiction regarding economic policy and fuel pricing."
+          excerpt:
+            "Constitutional analysis of the Supreme Court's jurisdiction regarding economic policy and fuel pricing.",
         },
         {
           title: "The evidentiary irregularities in Aryan Khan’s bail order",
           platform: "The Times of India",
           url: "https://timesofindia.indiatimes.com/blogs/author/ravi-singh-chhikara/",
           date: "2021",
-          excerpt: "A critical legal analysis of the evidence and procedure in a high-profile bail hearing."
+          excerpt:
+            "A critical legal analysis of the evidence and procedure in a high-profile bail hearing.",
         },
         {
-          title: "Surveillance by Pegasus reveals a loophole in the IT and Telegraph Act",
+          title:
+            "Surveillance by Pegasus reveals a loophole in the IT and Telegraph Act",
           platform: "The Times of India",
           url: "https://timesofindia.indiatimes.com/blogs/author/ravi-singh-chhikara/",
           date: "2021",
-          excerpt: "Exploring the legislative gaps in India's surveillance laws in light of the Pegasus controversy."
+          excerpt:
+            "Exploring the legislative gaps in India's surveillance laws in light of the Pegasus controversy.",
         },
         {
-          title: "Do Tigers Have a Right to Privacy? Yes: Uttarakhand keeping wildlife reserves always open is problematic at many levels",
+          title:
+            "Do Tigers Have a Right to Privacy? Yes: Uttarakhand keeping wildlife reserves always open is problematic at many levels",
           platform: "The Times of India",
           url: "https://timesofindia.indiatimes.com/blogs/author/ravi-singh-chhikara/",
           date: "2021",
-          excerpt: "Discussing environmental law and the rights of wildlife vs. tourism usage in reserves."
-        }
+          excerpt:
+            "Discussing environmental law and the rights of wildlife vs. tourism usage in reserves.",
+        },
       ];
 
-      const gridInfo = document.getElementById('articlesGrid');
-      const searchInput = document.getElementById('searchInput');
-      const platformFilter = document.getElementById('platformFilter');
-      const yearFilter = document.getElementById('yearFilter');
+      const gridInfo = document.getElementById("articlesGrid");
+      const searchInput = document.getElementById("searchInput");
+      const platformFilter = document.getElementById("platformFilter");
+      const yearFilter = document.getElementById("yearFilter");
 
       // Render Function
       function renderArticles(data) {
-        gridInfo.innerHTML = '';
-        
+        gridInfo.innerHTML = "";
+
         if (data.length === 0) {
-          gridInfo.innerHTML = '<div class="no-results">No articles found matching your criteria.</div>';
+          gridInfo.innerHTML =
+            '<div class="no-results">No articles found matching your criteria.</div>';
           return;
         }
 
-        data.forEach(article => {
-          const card = document.createElement('div');
-          card.className = 'article-card fade-in'; // Added fade-in class for potential animation
-          
+        data.forEach((article) => {
+          const card = document.createElement("div");
+          card.className = "article-card fade-in"; // Added fade-in class for potential animation
+
           card.innerHTML = `
             <div class="article-content">
               <div class="article-meta">
                 <span class="platform-tag">${article.platform}</span>
-                <span class="date">${article.date || 'Recent'}</span>
+                <span class="date">${article.date || "Recent"}</span>
               </div>
               <h3 class="article-title">
                 <a href="${article.url}" target="_blank">${article.title}</a>
@@ -834,11 +1096,16 @@
         const selectedPlatform = platformFilter.value;
         const selectedYear = yearFilter.value;
 
-        const filtered = articles.filter(article => {
-          const matchesSearch = article.title.toLowerCase().includes(searchTerm) || 
-                                article.excerpt.toLowerCase().includes(searchTerm);
-          const matchesPlatform = selectedPlatform ? article.platform === selectedPlatform : true;
-          const matchesYear = selectedYear ? article.date === selectedYear : true;
+        const filtered = articles.filter((article) => {
+          const matchesSearch =
+            article.title.toLowerCase().includes(searchTerm) ||
+            article.excerpt.toLowerCase().includes(searchTerm);
+          const matchesPlatform = selectedPlatform
+            ? article.platform === selectedPlatform
+            : true;
+          const matchesYear = selectedYear
+            ? article.date === selectedYear
+            : true;
 
           return matchesSearch && matchesPlatform && matchesYear;
         });
@@ -847,25 +1114,24 @@
       }
 
       // Event Listeners
-      searchInput.addEventListener('input', filterArticles);
-      platformFilter.addEventListener('change', filterArticles);
-      yearFilter.addEventListener('change', filterArticles);
+      searchInput.addEventListener("input", filterArticles);
+      platformFilter.addEventListener("change", filterArticles);
+      yearFilter.addEventListener("change", filterArticles);
 
       // Initial Render
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         renderArticles(articles);
 
         // Header Scroll Effect (Added)
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
+        const header = document.getElementById("main-header");
+        window.addEventListener("scroll", () => {
           if (window.scrollY > 50) {
-            header.classList.add('scrolled');
+            header.classList.add("scrolled");
           } else {
-            header.classList.remove('scrolled');
+            header.classList.remove("scrolled");
           }
         });
       });
-
     </script>
   </body>
 </html>

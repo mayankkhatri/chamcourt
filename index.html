@@ -4,10 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chambers & Courtland | Premier Law Firm in Delhi</title>
-    <meta name="description" content="Chambers & Courtland is a premier law firm in Delhi, providing expert legal services in litigation, corporate law, and advisory. Trusted by clients for excellence and integrity." />
-    <meta name="keywords" content="Chambers & Courtland, Law Firm, Legal Services, Delhi Law Firm, Litigation, Corporate Law, Supreme Court Lawyers" />
+    <meta
+      name="description"
+      content="Chambers & Courtland is a premier law firm in Delhi, providing expert legal services in litigation, corporate law, and advisory. Trusted by clients for excellence and integrity."
+    />
+    <meta
+      name="keywords"
+      content="Chambers & Courtland, Law Firm, Legal Services, Delhi Law Firm, Litigation, Corporate Law, Supreme Court Lawyers"
+    />
     <meta name="author" content="Chambers & Courtland" />
-    <link rel="icon" href="assets/chacourt site icon.png" type="image/png">
+    <link rel="icon" href="assets/chacourt site icon.png" type="image/png" />
 
     <!-- Google Fonts & Remix Icon -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -90,19 +96,30 @@
       .reveal-on-scroll {
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1),
+          transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
       }
       .reveal-on-scroll.is-visible {
         opacity: 1;
         transform: translateY(0);
       }
-      
+
       /* Staggered Delays */
-      .delay-100 { transition-delay: 0.1s; }
-      .delay-200 { transition-delay: 0.2s; }
-      .delay-300 { transition-delay: 0.3s; }
-      .delay-400 { transition-delay: 0.4s; }
-      .delay-500 { transition-delay: 0.5s; }
+      .delay-100 {
+        transition-delay: 0.1s;
+      }
+      .delay-200 {
+        transition-delay: 0.2s;
+      }
+      .delay-300 {
+        transition-delay: 0.3s;
+      }
+      .delay-400 {
+        transition-delay: 0.4s;
+      }
+      .delay-500 {
+        transition-delay: 0.5s;
+      }
 
       /* 2. Header / Navigation */
       .main-header {
@@ -378,11 +395,11 @@
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
-      
+
       .wcu-card:hover .wcu-card-inner {
-          transform: translateY(-5px);
-          box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-          border-color: var(--color-primary);
+        transform: translateY(-5px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        border-color: var(--color-primary);
       }
 
       .wcu-card-image {
@@ -408,7 +425,12 @@
         z-index: 2;
         width: 55%;
         height: 100%;
-        background: rgba(18, 18, 18, 0.85); /* Slightly darker for better readability */
+        background: rgba(
+          18,
+          18,
+          18,
+          0.85
+        ); /* Slightly darker for better readability */
         backdrop-filter: blur(15px);
         border-right: 1px solid rgba(255, 255, 255, 0.1);
         padding: 3rem 4rem;
@@ -442,22 +464,22 @@
           margin-bottom: 2rem;
         }
         .wcu-card-inner {
-            grid-template-rows: 250px auto; /* Image on top, content below */
+          grid-template-rows: 250px auto; /* Image on top, content below */
         }
         .wcu-card-image {
-            grid-row: 1;
-            grid-column: 1;
+          grid-row: 1;
+          grid-column: 1;
         }
         .wcu-card-content {
-            grid-row: 2;
-            grid-column: 1;
-            width: 100%;
-            border-right: none;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 2rem;
+          grid-row: 2;
+          grid-column: 1;
+          width: 100%;
+          border-right: none;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 2rem;
         }
         .wcu-cards-wrapper {
-            gap: 2rem;
+          gap: 2rem;
         }
       }
       /* ======================================================================= */
@@ -780,7 +802,8 @@
         border: 1px solid rgba(255, 255, 255, 0.05);
         border-radius: 12px;
         padding: 2rem;
-        transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        transition: transform 0.4s ease, border-color 0.4s ease,
+          box-shadow 0.4s ease;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -792,7 +815,7 @@
       .pub-article-card:hover {
         transform: translateY(-8px);
         border-color: var(--color-primary);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
       }
 
       .pub-platform-tag {
@@ -838,8 +861,20 @@
         width: 100%;
         overflow: hidden;
         position: relative;
-        mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-        -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+        mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 20%,
+          black 80%,
+          transparent
+        );
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 20%,
+          black 80%,
+          transparent
+        );
         padding: 1rem 0;
       }
 
@@ -866,13 +901,22 @@
       }
 
       @keyframes scrollLogos {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-100% / 3)); }
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-100% / 3));
+        }
       }
 
       @media (max-width: 768px) {
-        .pub-grid { grid-template-columns: 1fr; }
-        .logo-item { font-size: 1.4rem; gap: 3rem; }
+        .pub-grid {
+          grid-template-columns: 1fr;
+        }
+        .logo-item {
+          font-size: 1.4rem;
+          gap: 3rem;
+        }
       }
     </style>
   </head>
@@ -908,7 +952,10 @@
               We are here to make<br />sure your <span>business</span
               ><br />succeed
             </h1>
-            <a href="services.html" class="slide-arrow-link" id="slide-main-link"
+            <a
+              href="services.html"
+              class="slide-arrow-link"
+              id="slide-main-link"
               ><i class="ri-arrow-right-up-line"></i
             ></a>
           </div>
@@ -959,7 +1006,10 @@
                 commercial transactions to drive your business forward.
               </p>
             </div>
-            <div class="practice-card reveal-on-scroll" style="transition-delay: 0.2s">
+            <div
+              class="practice-card reveal-on-scroll"
+              style="transition-delay: 0.2s"
+            >
               <i class="ri-scales-3-line"></i>
               <h3>Litigation & Dispute Resolution</h3>
               <p>
@@ -967,7 +1017,10 @@
                 disputes, from negotiation to courtroom advocacy.
               </p>
             </div>
-            <div class="practice-card reveal-on-scroll" style="transition-delay: 0.4s">
+            <div
+              class="practice-card reveal-on-scroll"
+              style="transition-delay: 0.4s"
+            >
               <i class="ri-building-line"></i>
               <h3>Real Estate Law</h3>
               <p>
@@ -983,7 +1036,10 @@
                 trademarks, and copyrights, in a competitive marketplace.
               </p>
             </div>
-            <div class="practice-card reveal-on-scroll" style="transition-delay: 0.2s">
+            <div
+              class="practice-card reveal-on-scroll"
+              style="transition-delay: 0.2s"
+            >
               <i class="ri-bank-line"></i>
               <h3>Banking & Finance</h3>
               <p>
@@ -991,7 +1047,10 @@
                 transactions, regulatory compliance, and debt financing.
               </p>
             </div>
-            <div class="practice-card reveal-on-scroll" style="transition-delay: 0.4s">
+            <div
+              class="practice-card reveal-on-scroll"
+              style="transition-delay: 0.4s"
+            >
               <i class="ri-shield-user-line"></i>
               <h3>Matrimonial Laws</h3>
               <p>
@@ -1013,8 +1072,8 @@
           <div class="section-header">
             <h2>The <span class="highlight">Courtland</span> Standard</h2>
             <p>
-              Welcome to Chambers & Courtland! We don't just practice law.
-              We define it. Our principles are the pillars of your success.
+              Welcome to Chambers & Courtland! We don't just practice law. We
+              define it. Our principles are the pillars of your success.
             </p>
           </div>
 
@@ -1041,9 +1100,8 @@
                   <h3>Strategic Precision</h3>
                   <p>
                     We dissect every complexity, crafting bespoke legal
-                    strategies that are as intelligent as they are
-                    indefensible. Your objectives become our blueprint for
-                    victory.
+                    strategies that are as intelligent as they are indefensible.
+                    Your objectives become our blueprint for victory.
                   </p>
                 </div>
                 <div class="wcu-card-image">
@@ -1078,8 +1136,8 @@
                   <h3>Unwavering Advocacy</h3>
                   <p>
                     In the negotiation room or the courtroom, we are your
-                    steadfast shield and your relentless champion. We don't
-                    just represent you; we become your voice.
+                    steadfast shield and your relentless champion. We don't just
+                    represent you; we become your voice.
                   </p>
                 </div>
                 <div class="wcu-card-image">
@@ -1120,8 +1178,8 @@
                   <h3>A Legacy of Results</h3>
                   <p>
                     Our reputation is forged in the outcomes we deliver. We
-                    measure our success not in cases won, but in futures
-                    secured and businesses empowered.
+                    measure our success not in cases won, but in futures secured
+                    and businesses empowered.
                   </p>
                 </div>
                 <div class="wcu-card-image">
@@ -1155,9 +1213,14 @@
                 forward. Your consultation is confidential, comprehensive, and
                 the first step toward achieving your goals.
               </p>
-              <a href="/contact.html" class="btn btn-primary">Schedule a Consultation</a>
+              <a href="/contact.html" class="btn btn-primary"
+                >Schedule a Consultation</a
+              >
             </div>
-            <div class="cta-visual reveal-on-scroll" style="transition-delay: 0.2s">
+            <div
+              class="cta-visual reveal-on-scroll"
+              style="transition-delay: 0.2s"
+            >
               <img
                 src="https://i.postimg.cc/qMtXqwbz/Alexander.png"
                 alt="A professional lawyer ready for a consultation"
@@ -1251,7 +1314,10 @@
               </div>
             </div> -->
             <!-- Attorney 3 -->
-            <div class="team-member reveal-on-scroll" style="transition-delay: 0.4s">
+            <div
+              class="team-member reveal-on-scroll"
+              style="transition-delay: 0.4s"
+            >
               <div class="team-member-img">
                 <img
                   src="https://i.postimg.cc/d1sJTJvF/image-9.png"
@@ -1282,6 +1348,43 @@
                 </a>
               </div>
             </div>
+            <!-- Attorney 4 (New) -->
+            <div
+              class="team-member reveal-on-scroll"
+              style="transition-delay: 0.6s"
+            >
+              <div class="team-member-img">
+                <img
+                  src="https://i.postimg.cc/44PSKGGM/Tanisha-Malik.png"
+                  alt="Attorney Tanisha Malik"
+                />
+              </div>
+              <h3>Tanisha Malik</h3>
+              <p>
+                Associate Partner | Arbitration, Matrimonial, Cyber & Criminal
+                Laws
+              </p>
+              <div class="attorney-location">
+                <i class="ri-map-pin-line"></i>
+                <span>Delhi | Haryana</span>
+              </div>
+              <div class="attorney-socials">
+                <a
+                  href="mailto:contact@chamcourt.com"
+                  aria-label="Email Tanisha Malik"
+                >
+                  <i class="ri-mail-line"></i>
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Tanisha Malik on LinkedIn"
+                >
+                  <i class="ri-linkedin-box-fill"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1293,13 +1396,20 @@
         <div class="container">
           <div class="section-header reveal-on-scroll">
             <h2>Thought <span class="highlight">Leadership</span> & Media</h2>
-            <p>Expert legal analysis and commentary by our partners featured in leading publications.</p>
+            <p>
+              Expert legal analysis and commentary by our partners featured in
+              leading publications.
+            </p>
           </div>
 
           <!-- Article Grid -->
           <div class="pub-grid">
             <!-- Article 1 -->
-            <a href="https://www.deccanherald.com/opinion/where-does-the-buck-stop-for-ai-models-3112702" target="_blank" class="pub-article-card reveal-on-scroll">
+            <a
+              href="https://www.deccanherald.com/opinion/where-does-the-buck-stop-for-ai-models-3112702"
+              target="_blank"
+              class="pub-article-card reveal-on-scroll"
+            >
               <span class="pub-platform-tag">Deccan Herald</span>
               <h3>Where does the buck stop for AI models?</h3>
               <div class="pub-read-more">
@@ -1308,16 +1418,28 @@
             </a>
 
             <!-- Article 2 -->
-            <a href="https://theleaflet.in/police-immunity-and-the-dilemma-around-section-197-of-the-crpc/" target="_blank" class="pub-article-card reveal-on-scroll" style="transition-delay: 0.1s">
+            <a
+              href="https://theleaflet.in/police-immunity-and-the-dilemma-around-section-197-of-the-crpc/"
+              target="_blank"
+              class="pub-article-card reveal-on-scroll"
+              style="transition-delay: 0.1s"
+            >
               <span class="pub-platform-tag">The Leaflet</span>
-              <h3>Police immunity and the dilemma around Section 197 of the CrPC</h3>
+              <h3>
+                Police immunity and the dilemma around Section 197 of the CrPC
+              </h3>
               <div class="pub-read-more">
                 Read Article <i class="ri-arrow-right-line"></i>
               </div>
             </a>
 
             <!-- Article 3 -->
-            <a href="https://timesofindia.indiatimes.com/blogs/voices/the-right-to-privacy-for-wildlife-in-india/" target="_blank" class="pub-article-card reveal-on-scroll" style="transition-delay: 0.2s">
+            <a
+              href="https://timesofindia.indiatimes.com/blogs/voices/the-right-to-privacy-for-wildlife-in-india/"
+              target="_blank"
+              class="pub-article-card reveal-on-scroll"
+              style="transition-delay: 0.2s"
+            >
               <span class="pub-platform-tag">Times of India</span>
               <h3>The right to privacy for wildlife in India</h3>
               <div class="pub-read-more">
@@ -1327,12 +1449,20 @@
           </div>
 
           <!-- View All Button -->
-          <div class="pub-view-all-wrapper reveal-on-scroll" style="transition-delay: 0.3s">
-            <a href="publications.html" class="btn btn-outline">View All Publications</a>
+          <div
+            class="pub-view-all-wrapper reveal-on-scroll"
+            style="transition-delay: 0.3s"
+          >
+            <a href="publications.html" class="btn btn-outline"
+              >View All Publications</a
+            >
           </div>
 
           <!-- Logo Marquee -->
-          <div class="pub-logo-marquee reveal-on-scroll" style="transition-delay: 0.2s">
+          <div
+            class="pub-logo-marquee reveal-on-scroll"
+            style="transition-delay: 0.2s"
+          >
             <div class="logo-track">
               <!-- Original Set -->
               <div class="logo-item">The Leaflet</div>
@@ -1340,7 +1470,7 @@
               <div class="logo-item">The Quint</div>
               <div class="logo-item">Legal Service India</div>
               <div class="logo-item">The Times of India</div>
-              
+
               <!-- Duplicate Set -->
               <div class="logo-item">The Leaflet</div>
               <div class="logo-item">Deccan Herald</div>
@@ -1400,7 +1530,7 @@
             <h4>Get In Touch</h4>
             <p>
               Chamber No 6, CK Daftary Block, Supreme Court of India,<br />New
-              Delhi - 110001 
+              Delhi - 110001
             </p>
             <p>
               <strong>P:</strong> +91 70421 31601<br />
@@ -1537,21 +1667,21 @@
         // --- FADE-IN ON SCROLL SCRIPT ---
         const observerOptions = {
           root: null,
-          rootMargin: '0px',
-          threshold: 0.1
+          rootMargin: "0px",
+          threshold: 0.1,
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
+              entry.target.classList.add("is-visible");
               observer.unobserve(entry.target);
             }
           });
         }, observerOptions);
 
-        const elements = document.querySelectorAll('.reveal-on-scroll');
-        elements.forEach(el => observer.observe(el));
+        const elements = document.querySelectorAll(".reveal-on-scroll");
+        elements.forEach((el) => observer.observe(el));
       });
     </script>
     <!-- Disclaimer Modal (Bottom Banner) -->
@@ -1562,19 +1692,33 @@
         <div class="disclaimer-text-container">
           <div class="disclaimer-text" id="disclaimer-text">
             <p>
-              The Bar Council of India does not permit advertisement or solicitation by advocates in any form or manner. By accessing this website, www.chamcourt.com, you acknowledge and confirm that you are seeking information relating to Chambers & Courtland of your own accord and that there has been no form of solicitation, advertisement or inducement by Chambers & Courtland or its members.
+              The Bar Council of India does not permit advertisement or
+              solicitation by advocates in any form or manner. By accessing this
+              website, www.chamcourt.com, you acknowledge and confirm that you
+              are seeking information relating to Chambers & Courtland of your
+              own accord and that there has been no form of solicitation,
+              advertisement or inducement by Chambers & Courtland or its
+              members.
             </p>
             <p>
-              The content of this website is for informational purposes only and should not be interpreted as soliciting or advertisement. No material/information provided on this website should be construed as legal advice. Chambers & Courtland shall not be liable for consequences of any action taken by relying on the material/information provided on this website.
+              The content of this website is for informational purposes only and
+              should not be interpreted as soliciting or advertisement. No
+              material/information provided on this website should be construed
+              as legal advice. Chambers & Courtland shall not be liable for
+              consequences of any action taken by relying on the
+              material/information provided on this website.
             </p>
             <p>
-              The contents of this website are the intellectual property of Chambers & Courtland.
+              The contents of this website are the intellectual property of
+              Chambers & Courtland.
             </p>
           </div>
           <button id="read-more-btn" class="btn-read-more">Read More</button>
         </div>
         <div class="disclaimer-action">
-          <button id="proceed-btn" class="btn-proceed">I AGREE & PROCEED</button>
+          <button id="proceed-btn" class="btn-proceed">
+            I AGREE & PROCEED
+          </button>
         </div>
       </div>
     </div>
@@ -1618,7 +1762,7 @@
         display: flex;
         justify-content: center;
       }
-      
+
       .disclaimer-banner.show {
         transform: translateY(0);
       }
@@ -1696,7 +1840,7 @@
         font-family: var(--font-body);
         transition: opacity 0.3s ease;
       }
-      
+
       .btn-read-more.hidden {
         opacity: 0;
         pointer-events: none;
@@ -1739,85 +1883,85 @@
           text-align: center;
         }
         .disclaimer-content h3 {
-            padding-top: 0;
+          padding-top: 0;
         }
         .disclaimer-action {
           text-align: center;
           padding-top: 0;
         }
         .disclaimer-text-container {
-            align-items: center;
+          align-items: center;
         }
         .disclaimer-text {
-            text-align: left;
+          text-align: left;
         }
       }
     </style>
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         // Disclaimer Modal Logic
-        const modal = document.getElementById('disclaimer-modal');
-        const backdrop = document.getElementById('disclaimer-backdrop');
-        const proceedBtn = document.getElementById('proceed-btn');
-        const readMoreBtn = document.getElementById('read-more-btn');
-        const disclaimerText = document.getElementById('disclaimer-text');
-        
+        const modal = document.getElementById("disclaimer-modal");
+        const backdrop = document.getElementById("disclaimer-backdrop");
+        const proceedBtn = document.getElementById("proceed-btn");
+        const readMoreBtn = document.getElementById("read-more-btn");
+        const disclaimerText = document.getElementById("disclaimer-text");
+
         // Check if user has already accepted
-        if (!sessionStorage.getItem('disclaimerAccepted')) {
+        if (!sessionStorage.getItem("disclaimerAccepted")) {
           // Show modal with a slight delay for smooth entrance
           setTimeout(() => {
-            modal.classList.add('show');
-            backdrop.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            modal.classList.add("show");
+            backdrop.classList.add("show");
+            document.body.style.overflow = "hidden"; // Prevent scrolling
           }, 500);
         }
 
         // Handle Read More Toggle
-        readMoreBtn.addEventListener('click', () => {
-          disclaimerText.classList.toggle('expanded');
-          if (disclaimerText.classList.contains('expanded')) {
-            readMoreBtn.textContent = 'Read Less';
+        readMoreBtn.addEventListener("click", () => {
+          disclaimerText.classList.toggle("expanded");
+          if (disclaimerText.classList.contains("expanded")) {
+            readMoreBtn.textContent = "Read Less";
           } else {
-            readMoreBtn.textContent = 'Read More';
+            readMoreBtn.textContent = "Read More";
             // Reset scroll position when collapsing? Optional, but good UX
             disclaimerText.scrollTop = 0;
-            readMoreBtn.classList.remove('hidden');
+            readMoreBtn.classList.remove("hidden");
           }
         });
 
         // Handle Scroll to Hide Read More
-        disclaimerText.addEventListener('scroll', () => {
+        disclaimerText.addEventListener("scroll", () => {
           // If scrolled to bottom (with a small buffer)
-          if (disclaimerText.scrollHeight - disclaimerText.scrollTop <= disclaimerText.clientHeight + 5) {
-             // Only hide if NOT expanded (because if expanded, we want Read Less to be visible usually, 
-             // but user said "removed on toggle" which is vague. 
-             // Let's assume: if they scroll to bottom of the SMALL view, they don't need 'Read More'.
-             if (!disclaimerText.classList.contains('expanded')) {
-                 readMoreBtn.classList.add('hidden');
-             }
+          if (
+            disclaimerText.scrollHeight - disclaimerText.scrollTop <=
+            disclaimerText.clientHeight + 5
+          ) {
+            // Only hide if NOT expanded (because if expanded, we want Read Less to be visible usually,
+            // but user said "removed on toggle" which is vague.
+            // Let's assume: if they scroll to bottom of the SMALL view, they don't need 'Read More'.
+            if (!disclaimerText.classList.contains("expanded")) {
+              readMoreBtn.classList.add("hidden");
+            }
           } else {
-             readMoreBtn.classList.remove('hidden');
+            readMoreBtn.classList.remove("hidden");
           }
         });
 
         // Handle proceed button click
-        proceedBtn.addEventListener('click', () => {
-          sessionStorage.setItem('disclaimerAccepted', 'true');
-          modal.classList.remove('show');
-          backdrop.classList.remove('show');
-          document.body.style.overflow = ''; // Restore scrolling
-          
+        proceedBtn.addEventListener("click", () => {
+          sessionStorage.setItem("disclaimerAccepted", "true");
+          modal.classList.remove("show");
+          backdrop.classList.remove("show");
+          document.body.style.overflow = ""; // Restore scrolling
+
           // Remove from DOM after transition to clean up
           setTimeout(() => {
-            modal.style.display = 'none';
-            backdrop.style.display = 'none';
+            modal.style.display = "none";
+            backdrop.style.display = "none";
           }, 500);
         });
       });
     </script>
   </body>
 </html>
-
-
-
