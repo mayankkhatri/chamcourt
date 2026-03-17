@@ -305,6 +305,24 @@
           display: none; /* Mobile menu not implemented in original, keeping consistent */
         }
       }
+    
+      /* --- Mobile Responsiveness Fixes --- */
+      @media (max-width: 576px) {
+        .logo {
+          font-size: 1.1rem !important;
+        }
+        .main-header {
+          padding: 1rem !important;
+        }
+        .main-header.scrolled {
+          padding: 0.8rem 1rem !important;
+        }
+      }
+      @media (max-width: 380px) {
+        .logo {
+          font-size: 0.95rem !important;
+        }
+      }
     </style>
   </head>
   <body>
