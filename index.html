@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -85,7 +85,9 @@
       .fade-in {
         opacity: 0;
         transform: translateY(30px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        transition:
+          opacity 0.8s ease-out,
+          transform 0.8s ease-out;
       }
       .fade-in.visible {
         opacity: 1;
@@ -96,7 +98,8 @@
       .reveal-on-scroll {
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1),
+        transition:
+          opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1),
           transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
       }
       .reveal-on-scroll.is-visible {
@@ -132,7 +135,9 @@
         justify-content: space-between;
         align-items: center;
         z-index: 1000;
-        transition: background-color 0.4s ease, padding 0.4s ease;
+        transition:
+          background-color 0.4s ease,
+          padding 0.4s ease;
       }
       .main-header.scrolled {
         background-color: rgba(18, 18, 18, 0.9);
@@ -203,7 +208,9 @@
       .slide-content {
         opacity: 0;
         transform: translateY(20px);
-        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        transition:
+          opacity 0.5s ease-out,
+          transform 0.5s ease-out;
       }
       .slide-content h1 {
         font-size: 5rem;
@@ -270,7 +277,9 @@
         margin-top: 1.5rem;
         opacity: 0;
         transform: translateY(10px);
-        transition: opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s;
+        transition:
+          opacity 0.5s ease-out 0.2s,
+          transform 0.5s ease-out 0.2s;
       }
       .slide-content.is-visible,
       .slide-bottom-info.is-visible {
@@ -323,7 +332,9 @@
         background-color: var(--color-surface);
         padding: 2.5rem 2rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: transform 0.3s ease, border-color 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease;
       }
       .practice-card:hover {
         transform: translateY(-10px);
@@ -393,7 +404,9 @@
         overflow: hidden;
         background-color: var(--color-surface);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
       }
 
       .wcu-card:hover .wcu-card-inner {
@@ -603,7 +616,9 @@
         height: auto;
         display: block;
         filter: grayscale(100%);
-        transition: filter 0.4s ease, transform 0.4s ease;
+        transition:
+          filter 0.4s ease,
+          transform 0.4s ease;
       }
       .team-member:hover img {
         filter: grayscale(0%);
@@ -644,7 +659,9 @@
       .attorney-socials a i {
         font-size: 1.4rem;
         color: #a0a0a0;
-        transition: color 0.3s ease, transform 0.3s ease;
+        transition:
+          color 0.3s ease,
+          transform 0.3s ease;
       }
 
       .attorney-socials a:hover i {
@@ -802,7 +819,9 @@
         border: 1px solid rgba(255, 255, 255, 0.05);
         border-radius: 12px;
         padding: 2rem;
-        transition: transform 0.4s ease, border-color 0.4s ease,
+        transition:
+          transform 0.4s ease,
+          border-color 0.4s ease,
           box-shadow 0.4s ease;
         display: flex;
         flex-direction: column;
@@ -918,7 +937,7 @@
           gap: 3rem;
         }
       }
-    
+
       /* --- Mobile Responsiveness Fixes --- */
       @media (max-width: 576px) {
         .logo {
@@ -1367,7 +1386,7 @@
               </div>
             </div>
             <!-- Attorney 4 (New) -->
-            <div
+            <!-- <div
               class="team-member reveal-on-scroll"
               style="transition-delay: 0.6s"
             >
@@ -1402,7 +1421,7 @@
                   <i class="ri-linkedin-box-fill"></i>
                 </a>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -1620,7 +1639,7 @@
         const slideElements = document.querySelectorAll(".slide");
         const slideContentEl = document.querySelector(".slide-content");
         const slideBottomInfoEl = document.getElementById(
-          "slide-bottom-info-container"
+          "slide-bottom-info-container",
         );
         const slideTitleEl = document.getElementById("slide-title");
         const slideNumberEl = document.getElementById("slide-number-display");
@@ -1754,7 +1773,9 @@
         z-index: 9998;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.5s ease, visibility 0.5s ease;
+        transition:
+          opacity 0.5s ease,
+          visibility 0.5s ease;
         pointer-events: none; /* Let clicks pass through if needed, but usually we want to block interaction */
         pointer-events: all;
       }
@@ -1914,7 +1935,7 @@
           text-align: left;
         }
       }
-    
+
       /* --- Mobile Responsiveness Fixes --- */
       @media (max-width: 576px) {
         .logo {
