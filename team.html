@@ -373,6 +373,143 @@
         line-height: 1.5;
       }
 
+      /* Interns Section */
+      .interns-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 3rem;
+        justify-content: center;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .intern-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .intern-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--color-primary);
+        transform: scaleY(0);
+        transition: transform 0.4s ease;
+        transform-origin: bottom;
+        z-index: 2;
+      }
+      .intern-card:hover {
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-5px);
+        border-color: rgba(201, 169, 127, 0.2);
+      }
+      .intern-card:hover::before {
+        transform: scaleY(1);
+      }
+      .intern-image-wrapper {
+        width: 100%;
+        height: 380px;
+        overflow: hidden;
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .intern-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        transition: transform 0.6s ease;
+        filter: grayscale(20%);
+      }
+      .intern-card:hover .intern-image {
+        transform: scale(1.05);
+        filter: grayscale(0%);
+      }
+      .intern-content {
+        padding: 2.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .intern-header {
+        margin-bottom: 1.5rem;
+      }
+      .intern-name {
+        font-size: 1.8rem;
+        margin-bottom: 0.3rem;
+      }
+      .intern-role {
+        color: var(--color-primary);
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+      .intern-details {
+        margin-top: auto;
+      }
+      .intern-detail-row {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+      }
+      .intern-detail-row:last-child {
+        margin-bottom: 0;
+      }
+      .intern-icon {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        background: rgba(201, 169, 127, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary);
+        font-size: 1.1rem;
+      }
+      .intern-info h6 {
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .intern-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .intern-info li {
+        font-size: 0.9rem;
+        color: #aaa;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .intern-info li::before {
+        content: "•";
+        color: var(--color-primary);
+        font-weight: bold;
+      }
+      .intern-info p {
+        font-size: 0.9rem;
+        color: #aaa;
+        margin-bottom: 0;
+        line-height: 1.5;
+      }
+
       /* Footer (Inherited) */
       .main-footer {
         background-color: var(--color-surface);
@@ -662,7 +799,7 @@
         </div> -->
       </section>
 
-      <!-- Associates Section -->
+      <!-- Associates Section (Hidden for now) 
       <section class="section" style="background-color: #161616">
         <div class="container">
           <div
@@ -683,7 +820,7 @@
           </div>
 
           <div class="associates-grid">
-            <!-- Associate 1: Tushar Dabas -->
+            <!- - Associate 1: Tushar Dabas - ->
             <div class="associate-card reveal-on-scroll">
               <div class="associate-header">
                 <h3 class="associate-name">Tushar Dabas</h3>
@@ -731,7 +868,7 @@
               </div>
             </div>
 
-            <!-- Associate 2: Namita Chhabra -->
+            <!- - Associate 2: Namita Chhabra - ->
             <div class="associate-card reveal-on-scroll delay-200">
               <div class="associate-header">
                 <h3 class="associate-name">Namita Chhabra</h3>
@@ -781,6 +918,113 @@
           </div>
         </div>
       </section>
+      -->
+
+      <!-- Interns Section -->
+      <section class="section container">
+        <div
+          style="text-align: center; margin-bottom: 5rem"
+          class="reveal-on-scroll"
+        >
+          <h2>Interns</h2>
+          <p
+            style="
+              color: var(--color-primary);
+              letter-spacing: 2px;
+              text-transform: uppercase;
+              font-size: 0.9rem;
+            "
+          >
+            Young legal minds contributing to research, advocacy, and legal innovation.
+          </p>
+        </div>
+
+        <div class="interns-grid">
+          <!-- Intern 1: Yash Bhardwaj -->
+          <div class="intern-card reveal-on-scroll">
+            <div class="intern-image-wrapper">
+              <img
+                src="https://i.postimg.cc/pdjKphff/image.png"
+                alt="Yash Bhardwaj"
+                class="intern-image"
+              />
+            </div>
+            <div class="intern-content">
+              <div class="intern-header">
+                <h3 class="intern-name">Yash Bhardwaj</h3>
+                <span class="intern-role">Intern</span>
+              </div>
+              <div class="intern-details">
+                <div class="intern-detail-row">
+                  <div class="intern-icon">
+                    <i class="ri-graduation-cap-line"></i>
+                  </div>
+                  <div class="intern-info">
+                    <h6>Education</h6>
+                    <p>2nd Year | VIPS-TC</p>
+                  </div>
+                </div>
+                <div class="intern-detail-row">
+                  <div class="intern-icon">
+                    <i class="ri-briefcase-line"></i>
+                  </div>
+                  <div class="intern-info">
+                    <h6>Roles &amp; Associations</h6>
+                    <ul>
+                      <li>Executive Member — VIPS Legal Aid Clinic</li>
+                      <li>Member — Advocates Legion (Moot Court Society)</li>
+                      <li>Member — Centre for Intellectual Property Rights, VIPS-TC</li>
+                      <li>Member — Centre for Business &amp; Taxation Laws</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Intern 2: Parag Saini -->
+          <div class="intern-card reveal-on-scroll delay-200">
+            <div class="intern-image-wrapper">
+              <img
+                src="https://i.postimg.cc/C58K4kKn/image.png"
+                alt="Parag Saini"
+                class="intern-image"
+              />
+            </div>
+            <div class="intern-content">
+              <div class="intern-header">
+                <h3 class="intern-name">Parag Saini</h3>
+                <span class="intern-role">Intern</span>
+              </div>
+              <div class="intern-details">
+                <div class="intern-detail-row">
+                  <div class="intern-icon">
+                    <i class="ri-graduation-cap-line"></i>
+                  </div>
+                  <div class="intern-info">
+                    <h6>Education</h6>
+                    <p>1st Year | Law Centre-I, University of Delhi</p>
+                  </div>
+                </div>
+                <div class="intern-detail-row">
+                  <div class="intern-icon">
+                    <i class="ri-briefcase-line"></i>
+                  </div>
+                  <div class="intern-info">
+                    <h6>Roles &amp; Associations</h6>
+                    <ul>
+                      <li>Member — Legal Services Society</li>
+                      <li>Member — DUSU Legal Cell</li>
+                      <li>Legal Researcher — Chambers &amp; Courtland</li>
+                      <li>Volunteer — Access to Justice Initiative</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -823,8 +1067,8 @@
           <div class="footer-col">
             <h4>Get In Touch</h4>
             <p>
-              25D, Power Apartment, AD block, pitampura,<br />
-              new Delhi - 110034
+              25D, Power Apartment, AD block, Pitampura,<br />
+              New Delhi - 110034
             </p>
             <p>
               <strong>P:</strong> +91 70421 31601<br />
