@@ -477,15 +477,17 @@
         text-transform: uppercase;
       }
       .intern-details {
-        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
       }
       .intern-detail-row {
         display: flex;
         gap: 1rem;
-        margin-bottom: 1.2rem;
-      }
-      .intern-detail-row:last-child {
         margin-bottom: 0;
+      }
+      .intern-detail-row:first-child .intern-info p {
+        min-height: 2.8rem;
       }
       .intern-icon {
         flex-shrink: 0;
