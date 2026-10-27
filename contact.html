@@ -127,6 +127,31 @@
         font-family: var(--font-heading);
         font-size: 1.5rem;
         font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--color-heading);
+        text-decoration: none;
+        letter-spacing: 0.5px;
+      }
+      .logo-img {
+        height: 2.2rem;
+        width: auto;
+        object-fit: contain;
+        display: inline-block;
+        flex-shrink: 0;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+        transition: transform 0.3s ease;
+      }
+      .logo:hover .logo-img {
+        transform: scale(1.06);
+      }
+      .footer-col .logo {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+      .footer-col .logo-img {
+        height: 1.85rem;
       }
       .main-nav ul {
         list-style: none;
@@ -310,6 +335,10 @@
       @media (max-width: 576px) {
         .logo {
           font-size: 1.1rem !important;
+          gap: 0.5rem;
+        }
+        .logo-img {
+          height: 1.6rem;
         }
         .main-header {
           padding: 1rem !important;
@@ -320,7 +349,11 @@
       }
       @media (max-width: 380px) {
         .logo {
-          font-size: 0.95rem !important;
+          font-size: 0.92rem !important;
+          gap: 0.4rem;
+        }
+        .logo-img {
+          height: 1.35rem;
         }
       }
     </style>
@@ -328,7 +361,14 @@
   <body>
     <!-- Header -->
     <header class="main-header" id="main-header">
-      <div class="logo">CHAMBERS & COURTLAND</div>
+      <a href="index.html" class="logo">
+        <img
+          src="assets/site logo.png"
+          alt="Chambers & Courtland Logo"
+          class="logo-img"
+        />
+        <span>CHAMBERS & COURTLAND</span>
+      </a>
       <nav class="main-nav">
         <ul>
           <li>
@@ -461,7 +501,14 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col">
-            <h4 class="logo">CHAMBERS & COURTLAND</h4>
+            <h4 class="logo">
+              <img
+                src="assets/site logo.png"
+                alt="Chambers & Courtland Logo"
+                class="logo-img"
+              />
+              <span>CHAMBERS & COURTLAND</span>
+            </h4>
             <p>
               Providing exceptional legal counsel over the years. We are dedicated
               to our clients' success and the pursuit of justice.
